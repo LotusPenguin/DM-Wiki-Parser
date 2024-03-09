@@ -1,0 +1,628 @@
+mse_version: 2.0.2
+game: duel-masters
+game_version: 0.0.0
+stylesheet: style
+stylesheet_version: 0.0.0
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 7
+	type_text: c
+	power_text: 1
+	power_number: 9500
+	symbol_text: l
+	image: image2
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​■ Ninja Change 5 (Whenever one of your opponent's creatures attacks or blocks, if during that attack you didn't use a Ninja ability, you may switch one of your Mecha or Shinobi that costs 5 or more with this creature from your hand.) ​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, tap all your opponent's creatures.■ Your opponent's creatures can't attack the turn they are put.
+	text: 
+		​■ Ninja Change 5 (Whenever one of your opponent's creatures attacks or blocks, if during that attack you didn't use a Ninja ability, you may switch one of your Mecha or Shinobi that costs 5 or more with this creature from your hand.) ​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, tap all your opponent's creatures.■ Your opponent's creatures can't attack the turn they are put.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Chaosmantra, Holy
+	subtype: MECHA DEL STELLA / SHINOBI
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 6
+	type_text: c
+	power_text: 1
+	power_number: 9000
+	symbol_text: d
+	image: image3
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​■ Abyss Rush: You may summon this creature from your graveyard. If you do, this creature can attack players this turn and is put on the bottom of your deck at the end of the turn.​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature, choose one of your opponent's creatures. That creature loses infinite power until the end of the turn.■ Whenever this creature attacks, you may Abyss Double Mechraid 5. (Abyss Double Mechraid 5: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 5 or less for no cost. Put the rest on the bottom of your deck in any order.)
+	text: 
+		​■ Abyss Rush: You may summon this creature from your graveyard. If you do, this creature can attack players this turn and is put on the bottom of your deck at the end of the turn.​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature, choose one of your opponent's creatures. That creature loses infinite power until the end of the turn.■ Whenever this creature attacks, you may Abyss Double Mechraid 5. (Abyss Double Mechraid 5: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 5 or less for no cost. Put the rest on the bottom of your deck in any order.)<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Sith, Wicked Fight
+	subtype: ABYSS CHIMERA
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 8
+	type_text: c
+	power_text: 2
+	power_number: 13000
+	symbol_text: l
+	image: image4
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ Whenever this creature taps, you may put any number of Mecha Del Stella cards from your hand.■ Whenever one of your Mecha attacks or blocks, you may shieldify the top card of your deck.■ If you have 10 or more shields, your Mecha win all battles and your opponent can't choose them.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ Whenever this creature taps, you may put any number of Mecha Del Stella cards from your hand.■ Whenever one of your Mecha attacks or blocks, you may shieldify the top card of your deck.■ If you have 10 or more shields, your Mecha win all battles and your opponent can't choose them.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Shikisokuzekku, Holy Chaos Great Ninja
+	subtype: MECHA DEL SOL / SHINOBI
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 8
+	type_text: c
+	power_text: 2
+	power_number: 12000
+	symbol_text: w
+	image: image5
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ When you put this creature, until the start of your next turn, your opponent's creatures that cost 7 or less can't attack or block.■ Your opponent's non-creature cards that cost 7 or less cost 8 instead.■ Your opponent can't choose this creature by the ability of elements or effects of spells that cost 7 or less.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ When you put this creature, until the start of your next turn, your opponent's creatures that cost 7 or less can't attack or block.■ Your opponent's non-creature cards that cost 7 or less cost 8 instead.■ Your opponent can't choose this creature by the ability of elements or effects of spells that cost 7 or less.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Kl'avia Tune
+	subtype: MAGIC COMMAND DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 8
+	type_text: c
+	power_text: 1
+	power_number: 9000
+	symbol_text: d
+	image: image6
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, choose one of the following.► Choose one of your opponent's elements and destroy it. Then you may put the same number of cards as that element's cost from the top of your deck into your graveyard.► You may shuffle 13 cards from your graveyard and put them on the bottom of your deck. If you do, your opponent chooses 13 cards from their hand and battle zone shuffles them, and puts them on the bottom of their deck.
+	text: 
+		​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, choose one of the following.► Choose one of your opponent's elements and destroy it. Then you may put the same number of cards as that element's cost from the top of your deck into your graveyard.► You may shuffle 13 cards from your graveyard and put them on the bottom of your deck. If you do, your opponent chooses 13 cards from their hand and battle zone shuffles them, and puts them on the bottom of their deck.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Umbrella = Isabella, Abyss Attack Parasol
+	subtype: ABYSS ROYALE
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 8
+	type_text: c
+	power_text: 1
+	power_number: 9000
+	symbol_text: f
+	image: image7
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ This creature costs 1 less to summon for each creature in the battle zone. It can't cost 0 or less.■ Speed attacker (This creature doesn't get summoning sickness.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, you may choose one of your opponent's creatures. This creature and that creature battle.■ Whenever this creature wins a battle, you may draw a card.
+	text: 
+		■ This creature costs 1 less to summon for each creature in the battle zone. It can't cost 0 or less.■ Speed attacker (This creature doesn't get summoning sickness.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, you may choose one of your opponent's creatures. This creature and that creature battle.■ Whenever this creature wins a battle, you may draw a card.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Bolshack Galaward
+	subtype: ARMORED DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5000
+	symbol_text: f
+	image: image8
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ Speed attacker (This creature doesn't get summoning sickness.)■ This creature can't be destroyed while battling.■ Whenever this creature attacks, you may put a Fire Bird from your hand.■ After this creature attacks, you may destroy 5 of your Fire Birds. If you do, take an extra turn after this one.
+	text: 
+		■ Speed attacker (This creature doesn't get summoning sickness.)■ This creature can't be destroyed while battling.■ Whenever this creature attacks, you may put a Fire Bird from your hand.■ After this creature attacks, you may destroy 5 of your Fire Birds. If you do, take an extra turn after this one.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Balupialesk, Thunderflame Soaring Armor
+	subtype: ARMORED FIRE BIRD / ARMORED WYVERN
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 10
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: n
+	image: image9
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ Double Sympathy: Giant (When you summon this creature, you may pay 2 less for each of your Giant creatures. It can't cost 0 or less.)■ Mach Fighter (This creature can attack tapped or untapped creatures on the turn you put it.)​■ Double breaker (This creature breaks 2 shields.)■ Whenever one of your Giants attacks, you may draw a card.■ Your Giants cost 2 less to use. They can't cost 0 or less.■ At the start of your turn, if you have 18 or more creatures, you win the game.
+	text: 
+		■ Double Sympathy: Giant (When you summon this creature, you may pay 2 less for each of your Giant creatures. It can't cost 0 or less.)■ Mach Fighter (This creature can attack tapped or untapped creatures on the turn you put it.)​■ Double breaker (This creature breaks 2 shields.)■ Whenever one of your Giants attacks, you may draw a card.■ Your Giants cost 2 less to use. They can't cost 0 or less.■ At the start of your turn, if you have 18 or more creatures, you win the game.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Eternal Green Par Life, Eighteenth Dragon
+	subtype: GIANT DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11500
+	symbol_text: l
+	image: image10
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more creatures that have "blocker", this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Mecha Double Mechraid 8. (Mecha Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Mecha cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Untap all your Mecha at the end of each turn.
+	text: 
+		■ If you have 2 or more creatures that have "blocker", this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Mecha Double Mechraid 8. (Mecha Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Mecha cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Untap all your Mecha at the end of each turn.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Flavum Gorghini
+	subtype: MECHA DEL DINERO / SUPERCAR DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:42
+	time_modified: 2024-03-10 00:36:42
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5500
+	symbol_text: l
+	image: image11
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Shield Trigger Plus (When this creature is put into your hand from your shield zone, you may summon it for no cost. If it's your opponent's turn, and you have had 2 or more of your shields broken this turn, this creature gets its ​ ability.)​ When you put this creature, look at the top 2 cards of your deck. Shieldify one of them and put the other into your hand.​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Each of your Mecha creatures that cost 8 or less in your shield zone get "Shield Trigger".
+	text: 
+		​​ Shield Trigger Plus (When this creature is put into your hand from your shield zone, you may summon it for no cost. If it's your opponent's turn, and you have had 2 or more of your shields broken this turn, this creature gets its ​ ability.)​ When you put this creature, look at the top 2 cards of your deck. Shieldify one of them and put the other into your hand.​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Each of your Mecha creatures that cost 8 or less in your shield zone get "Shield Trigger".<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Kusokzeshki, Holy Chaos Great Ninja
+	subtype: MECHA DEL STELLA / SHINOBI
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: w
+	image: image12
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more twinpact creatures, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Magic Double Mechraid 8. (Magic Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Magic cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Your Magic creatures can't be attacked or blocked.
+	text: 
+		■ If you have 2 or more twinpact creatures, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Magic Double Mechraid 8. (Magic Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Magic cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Your Magic creatures can't be attacked or blocked.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Go! Ink Steady
+	subtype: MAGIC POSEIDIA DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: d
+	image: image13
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ When you summon this creature, you may destroy 2 of your creatures. If you do, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Abyss Double Mechraid 8. (Abyss Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Abyss get "slayer".
+	text: 
+		■ When you summon this creature, you may destroy 2 of your creatures. If you do, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Abyss Double Mechraid 8. (Abyss Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Abyss get "slayer".<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Rate:Ga:Fuyoki
+	subtype: NOIR ABYSS
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5000
+	symbol_text: d
+	image: image14
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Powered breaker (This creature breaks an additional shield for each 6000 power.)■ At the start of your opponent's turn, your opponent discards a card at random from their hand.■ Whenever your opponent discards a card from their hand, you may draw a card.■ This creature gets +5000 power for each player that has no cards in their hand.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Powered breaker (This creature breaks an additional shield for each 6000 power.)■ At the start of your opponent's turn, your opponent discards a card at random from their hand.■ Whenever your opponent discards a card from their hand, you may draw a card.■ This creature gets +5000 power for each player that has no cards in their hand.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Telesco = Teles, Forethought
+	subtype: ABYSS ROYALE
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 10000
+	symbol_text: f
+	image: image15
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 3 or more fire elements, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Armored Double Mechraid 8. (Armored Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Armored cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Armored get +3000 power while battling.
+	text: 
+		■ If you have 3 or more fire elements, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Armored Double Mechraid 8. (Armored Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Armored cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Armored get +3000 power while battling.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Bolshack Noblesse Dragon
+	subtype: ARMORED DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 13000
+	symbol_text: n
+	image: image16
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more creatures that have power 6000 or more, this creature costs 3 less to summon.​■ Triple breaker (This creature breaks 3 shields.)■ When you summon this creature, Giant Double Mechraid 8. (Giant Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Giant cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Whenever one of your Giants would be destroyed, you may put them into your mana zone instead.
+	text: 
+		■ If you have 2 or more creatures that have power 6000 or more, this creature costs 3 less to summon.​■ Triple breaker (This creature breaks 3 shields.)■ When you summon this creature, Giant Double Mechraid 8. (Giant Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Giant cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Whenever one of your Giants would be destroyed, you may put them into your mana zone instead.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Ranshin! Albatross Tarantula
+	subtype: GIANT INSECT
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 8
+	type_text: s
+	power_text: 
+	power_number: 
+	symbol_text: wn
+	image: image17
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 4 or more cards in your mana zone that cost 7 or more, this spell costs 2 less to cast.■ Choose 2 of the following. (You may choose the same one twice.)► Draw 2 cards.► Choose one of your opponent's creatures and put it into it's owner's mana zone.► Shuffle your deck, then reveal the top card. If it's a creature, put it.
+	text: 
+		■ If you have 4 or more cards in your mana zone that cost 7 or more, this spell costs 2 less to cast.■ Choose 2 of the following. (You may choose the same one twice.)► Draw 2 cards.► Choose one of your opponent's creatures and put it into it's owner's mana zone.► Shuffle your deck, then reveal the top card. If it's a creature, put it.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Perfect Mysticroar
+	subtype: 
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 8
+	type_text: c
+	power_text: 2
+	power_number: 13000
+	symbol_text: l
+	image: image18
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ Whenever this creature taps, you may put any number of Mecha Del Stella cards from your hand.■ Whenever one of your Mecha attacks or blocks, you may shieldify the top card of your deck.■ If you have 10 or more shields, your Mecha win all battles and your opponent can't choose them.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ Whenever this creature taps, you may put any number of Mecha Del Stella cards from your hand.■ Whenever one of your Mecha attacks or blocks, you may shieldify the top card of your deck.■ If you have 10 or more shields, your Mecha win all battles and your opponent can't choose them.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Shikisokuzekku, Holy Chaos Great Ninja
+	subtype: MECHA DEL SOL / SHINOBI
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 8
+	type_text: c
+	power_text: 2
+	power_number: 12000
+	symbol_text: w
+	image: image19
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ When you put this creature, until the start of your next turn, your opponent's creatures that cost 7 or less can't attack or block.■ Your opponent's non-creature cards that cost 7 or less cost 8 instead.■ Your opponent can't choose this creature by the ability of elements or effects of spells that cost 7 or less.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)​■ Triple breaker (This creature breaks 3 shields.)■ When you put this creature, until the start of your next turn, your opponent's creatures that cost 7 or less can't attack or block.■ Your opponent's non-creature cards that cost 7 or less cost 8 instead.■ Your opponent can't choose this creature by the ability of elements or effects of spells that cost 7 or less.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Kl'avia Tune
+	subtype: MAGIC COMMAND DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:43
+	time_modified: 2024-03-10 00:36:43
+	cost_text: 8
+	type_text: c
+	power_text: 1
+	power_number: 9000
+	symbol_text: d
+	image: image20
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, choose one of the following.► Choose one of your opponent's elements and destroy it. Then you may put the same number of cards as that element's cost from the top of your deck into your graveyard.► You may shuffle 13 cards from your graveyard and put them on the bottom of your deck. If you do, your opponent chooses 13 cards from their hand and battle zone shuffles them, and puts them on the bottom of their deck.
+	text: 
+		​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, choose one of the following.► Choose one of your opponent's elements and destroy it. Then you may put the same number of cards as that element's cost from the top of your deck into your graveyard.► You may shuffle 13 cards from your graveyard and put them on the bottom of your deck. If you do, your opponent chooses 13 cards from their hand and battle zone shuffles them, and puts them on the bottom of their deck.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Umbrella = Isabella, Abyss Attack Parasol
+	subtype: ABYSS ROYALE
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 8
+	type_text: c
+	power_text: 1
+	power_number: 9000
+	symbol_text: f
+	image: image21
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ This creature costs 1 less to summon for each creature in the battle zone. It can't cost 0 or less.■ Speed attacker (This creature doesn't get summoning sickness.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, you may choose one of your opponent's creatures. This creature and that creature battle.■ Whenever this creature wins a battle, you may draw a card.
+	text: 
+		■ This creature costs 1 less to summon for each creature in the battle zone. It can't cost 0 or less.■ Speed attacker (This creature doesn't get summoning sickness.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature or whenever it attacks, you may choose one of your opponent's creatures. This creature and that creature battle.■ Whenever this creature wins a battle, you may draw a card.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Bolshack Galaward
+	subtype: ARMORED DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5000
+	symbol_text: f
+	image: image22
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ Speed attacker (This creature doesn't get summoning sickness.)■ This creature can't be destroyed while battling.■ Whenever this creature attacks, you may put a Fire Bird from your hand.■ After this creature attacks, you may destroy 5 of your Fire Birds. If you do, take an extra turn after this one.
+	text: 
+		■ Speed attacker (This creature doesn't get summoning sickness.)■ This creature can't be destroyed while battling.■ Whenever this creature attacks, you may put a Fire Bird from your hand.■ After this creature attacks, you may destroy 5 of your Fire Birds. If you do, take an extra turn after this one.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Balupialesk, Thunderflame Soaring Armor
+	subtype: ARMORED FIRE BIRD / ARMORED WYVERN
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 10
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: n
+	image: image23
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ Double Sympathy: Giant (When you summon this creature, you may pay 2 less for each of your Giant creatures. It can't cost 0 or less.)■ Mach Fighter (This creature can attack tapped or untapped creatures on the turn you put it.)​■ Double breaker (This creature breaks 2 shields.)■ Whenever one of your Giants attacks, you may draw a card.■ Your Giants cost 2 less to use. They can't cost 0 or less.■ At the start of your turn, if you have 18 or more creatures, you win the game.
+	text: 
+		■ Double Sympathy: Giant (When you summon this creature, you may pay 2 less for each of your Giant creatures. It can't cost 0 or less.)■ Mach Fighter (This creature can attack tapped or untapped creatures on the turn you put it.)​■ Double breaker (This creature breaks 2 shields.)■ Whenever one of your Giants attacks, you may draw a card.■ Your Giants cost 2 less to use. They can't cost 0 or less.■ At the start of your turn, if you have 18 or more creatures, you win the game.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Eternal Green Par Life, Eighteenth Dragon
+	subtype: GIANT DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11500
+	symbol_text: l
+	image: image24
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more creatures that have "blocker", this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Mecha Double Mechraid 8. (Mecha Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Mecha cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Untap all your Mecha at the end of each turn.
+	text: 
+		■ If you have 2 or more creatures that have "blocker", this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Mecha Double Mechraid 8. (Mecha Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Mecha cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Untap all your Mecha at the end of each turn.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Flavum Gorghini
+	subtype: MECHA DEL DINERO / SUPERCAR DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5500
+	symbol_text: l
+	image: image25
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Shield Trigger Plus (When this creature is put into your hand from your shield zone, you may summon it for no cost. If it's your opponent's turn, and you have had 2 or more of your shields broken this turn, this creature gets its ​ ability.)​ When you put this creature, look at the top 2 cards of your deck. Shieldify one of them and put the other into your hand.​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Each of your Mecha creatures that cost 8 or less in your shield zone get "Shield Trigger".
+	text: 
+		​​ Shield Trigger Plus (When this creature is put into your hand from your shield zone, you may summon it for no cost. If it's your opponent's turn, and you have had 2 or more of your shields broken this turn, this creature gets its ​ ability.)​ When you put this creature, look at the top 2 cards of your deck. Shieldify one of them and put the other into your hand.​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Each of your Mecha creatures that cost 8 or less in your shield zone get "Shield Trigger".<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Kusokzeshki, Holy Chaos Great Ninja
+	subtype: MECHA DEL STELLA / SHINOBI
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:44
+	time_modified: 2024-03-10 00:36:44
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: w
+	image: image26
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more twinpact creatures, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Magic Double Mechraid 8. (Magic Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Magic cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Your Magic creatures can't be attacked or blocked.
+	text: 
+		■ If you have 2 or more twinpact creatures, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Magic Double Mechraid 8. (Magic Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Magic cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Your Magic creatures can't be attacked or blocked.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Go! Ink Steady
+	subtype: MAGIC POSEIDIA DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 11000
+	symbol_text: d
+	image: image27
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ When you summon this creature, you may destroy 2 of your creatures. If you do, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Abyss Double Mechraid 8. (Abyss Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Abyss get "slayer".
+	text: 
+		■ When you summon this creature, you may destroy 2 of your creatures. If you do, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Abyss Double Mechraid 8. (Abyss Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Abyss cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Abyss get "slayer".<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Rate:Ga:Fuyoki
+	subtype: NOIR ABYSS
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 5
+	type_text: c
+	power_text: 1
+	power_number: 5000
+	symbol_text: d
+	image: image28
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Powered breaker (This creature breaks an additional shield for each 6000 power.)■ At the start of your opponent's turn, your opponent discards a card at random from their hand.■ Whenever your opponent discards a card from their hand, you may draw a card.■ This creature gets +5000 power for each player that has no cards in their hand.
+	text: 
+		​​ Blocker (You may tap this creature to change the attack target of your opponent's creature to this creature.)■ Powered breaker (This creature breaks an additional shield for each 6000 power.)■ At the start of your opponent's turn, your opponent discards a card at random from their hand.■ Whenever your opponent discards a card from their hand, you may draw a card.■ This creature gets +5000 power for each player that has no cards in their hand.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Telesco = Teles, Forethought
+	subtype: ABYSS ROYALE
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 10000
+	symbol_text: f
+	image: image29
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 3 or more fire elements, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Armored Double Mechraid 8. (Armored Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Armored cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Armored get +3000 power while battling.
+	text: 
+		■ If you have 3 or more fire elements, this creature costs 3 less to summon.​■ Double breaker (This creature breaks 2 shields.)■ When you summon this creature, Armored Double Mechraid 8. (Armored Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Armored cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Each of your Armored get +3000 power while battling.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Bolshack Noblesse Dragon
+	subtype: ARMORED DRAGON
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 9
+	type_text: c
+	power_text: 2
+	power_number: 13000
+	symbol_text: n
+	image: image30
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 2 or more creatures that have power 6000 or more, this creature costs 3 less to summon.​■ Triple breaker (This creature breaks 3 shields.)■ When you summon this creature, Giant Double Mechraid 8. (Giant Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Giant cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Whenever one of your Giants would be destroyed, you may put them into your mana zone instead.
+	text: 
+		■ If you have 2 or more creatures that have power 6000 or more, this creature costs 3 less to summon.​■ Triple breaker (This creature breaks 3 shields.)■ When you summon this creature, Giant Double Mechraid 8. (Giant Double Mechraid 8: Look at the top 6 cards of your deck. From among them, you may use up to 2 Giant cards that cost 8 or less for no cost. Put the rest on the bottom of your deck in any order.)■ Whenever one of your Giants would be destroyed, you may put them into your mana zone instead.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Ranshin! Albatross Tarantula
+	subtype: GIANT INSECT
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 8
+	type_text: s
+	power_text: 
+	power_number: 
+	symbol_text: wn
+	image: image31
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ If you have 4 or more cards in your mana zone that cost 7 or more, this spell costs 2 less to cast.■ Choose 2 of the following. (You may choose the same one twice.)► Draw 2 cards.► Choose one of your opponent's creatures and put it into it's owner's mana zone.► Shuffle your deck, then reveal the top card. If it's a creature, put it.
+	text: 
+		■ If you have 4 or more cards in your mana zone that cost 7 or more, this spell costs 2 less to cast.■ Choose 2 of the following. (You may choose the same one twice.)► Draw 2 cards.► Choose one of your opponent's creatures and put it into it's owner's mana zone.► Shuffle your deck, then reveal the top card. If it's a creature, put it.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Perfect Mysticroar
+	subtype: 
+card:
+	has_styling: false
+	notes:
+	time_created: 2024-03-10 00:36:45
+	time_modified: 2024-03-10 00:36:45
+	cost_text: 6
+	type_text: 
+	power_text: 2
+	power_number: 11000
+	symbol_text: f
+	image: image32
+	flavor: 
+		<font:ITC Officina Sans><size:40></size></font>
+	effect: 
+		■ Evolution—Put on one of your fire creatures.■ Invasion—Fire command (When one of your fire commands attack, you may put this creature from your hand onto it.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature on top of a non-evolution creature, choose one of your opponent's shields and put it into their graveyard.
+	text: 
+		■ Evolution—Put on one of your fire creatures.■ Invasion—Fire command (When one of your fire commands attack, you may put this creature from your hand onto it.)​■ Double breaker (This creature breaks 2 shields.)■ When you put this creature on top of a non-evolution creature, choose one of your opponent's shields and put it into their graveyard.<sep><line>
+		</line></sep><font:ITC Officina Sans><size:40></size></font>
+	name: Redzone Z, Passionate Invasion
+	subtype: SONIC COMMAND / INVADER 
+version_control:
+	type: none
+apprentice_code:
