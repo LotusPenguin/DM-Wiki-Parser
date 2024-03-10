@@ -18,6 +18,7 @@ def formatText(text):
             .replace('(', '<i>(')
             .replace(')', ')</i>')
             .replace('►', '<sym>t</sym>➤')
+            .replace('▶', '<sym>t</sym>➤')
             .replace('HASHsymHASH', '<sym>')
             .replace('HASH/symHASH', '</sym>')
             )
