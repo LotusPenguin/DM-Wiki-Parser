@@ -33,6 +33,14 @@ def find_previous_of_tag(tag, to_find):
         return None
 
 
+def includeSymbols(text):
+    text = text.replace('data-image-name="', 'data-image-name=>HASHsymHASH').replace('" data-relevant',
+                                                                                     'HASH/symHASH<data-relevant')
+    temp_soup = BeautifulSoup(text, 'html.parser')
+    text = temp_soup.get_text()
+    return text
+
+
 def getCards(linkList):
     returnedList = []
     for cardLink in linkList:
@@ -54,7 +62,7 @@ def getCards(linkList):
             cardPageContentRows.pop(-1)
             setsAndRarityRow = cardPageContentRows.pop(-1)
             setsAndRarityRowContent = setsAndRarityRow.find('div', class_='mw-collapsible mw-open')
-            rarityTextRaw = setsAndRarityRowContent.find_all('b')
+            rarityTextRaw = setsAndRarityRowContent.find_all('b')  # For future use
             rarityText = setsAndRarityRowContent.get_text()
             cardPageContentRows.pop(-1)
             for element in cardPageContentRows:
@@ -62,10 +70,11 @@ def getCards(linkList):
                 tempString = tempString.replace("\n", "")
                 tempSplit = tempString.split(':', 1)
                 cardDict[tempSplit[0]] = tempSplit[1]
-                # if tempSplit[0] == 'English Text':
-                #     cardDict['English Text Raw'] = str(element.contents[3:])
+                if 'English' in tempSplit[0]:
+                    raw_text = includeSymbols(str(element.contents[3:]))
+                    cardDict['English Text + Symbols'] = raw_text
             cardDict['Rarity Text'] = rarityText
-            # cardDict['Rarity Text Raw'] = rarityTextRaw
+            # cardDict['Rarity Text Raw'] = rarityTextRaw  # For future use
             returnedList.append(cardDict)
         except IndexError:
             println(IndexError)
@@ -78,7 +87,9 @@ if __name__ == '__main__':
 
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input
-    SET_URL = "https://duelmasters.fandom.com/wiki/DM23-RP2X_Chaos_of_Wicked_Ninjas:_Adrenaline_Pack"
+    SET_URL = "https://duelmasters.fandom.com/wiki/DMRP-01_Here_Come_the_Jokers!!"
+    includeFlavorText = False
+
     start = time.time()
 
     page = requests.get(SET_URL)
@@ -110,7 +121,7 @@ if __name__ == '__main__':
         for card in cardDetailsList:
             f.write(json.dumps(card) + '\n')
 
-    makeSet(setName, cardDetailsList)
+    makeSet(setName, cardDetailsList, includeFlavorText)
 
     end = time.time()
     println(f"Elapsed time: {end - start}")

@@ -8,6 +8,9 @@ class stringButBetter(str):
     def replace(self, __old, __new, __count=-1):
         return stringButBetter(str.replace(self, __old, __new, __count))
 
+    def strip(self, __chars=None):
+        return stringButBetter(str.strip(self, __chars))
+
     def replace_nth(self, __old, __new, __nth):
         arr = self.split(__old)
         i = 0

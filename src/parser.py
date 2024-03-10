@@ -7,25 +7,25 @@ from config import *
 from utils import stringButBetter
 
 
-# TODO: change text source to formatted raw to preserve symbol usage (eliminates issues with different wording etc.
 def formatText(text):
-    text = f'<b>{text}</b>'
     text = stringButBetter(text)
     text = (text
-            .replace('​', '')
-            .replace('■', '\n\t\t■')
+            .strip('[]')
+            .replace('​​', '\n')
+            .strip('\n')
+            .replace('\n\n', '\n')
+            .replace('\n', '\n\t\t')
             .replace('(', '<i>(')
             .replace(')', ')</i>')
-            .replace(' Blocker', '\n\t\t<sym>Blocker</sym> Blocker')
-            .replace_nth(' Shield Trigger Plus', '\n\t\t<sym>Shield Trigger Plus</sym> Shield Trigger Plus', 1)
-            .replace('►', '\n\t\t➤')
-
-            .replace_nth('\n\t\t', '', 1)
+            .replace('►', '<sym>t</sym>➤')
+            .replace('HASHsymHASH', '<sym>')
+            .replace('HASH/symHASH', '</sym>')
             )
+    text = f'<b>{text}</b>'
     return text
 
 
-def generateFileBeggining(file):
+def generateFileBeginning(file):
     file.write("""mse_version: 2.0.2
 game: duel-masters
 game_version: 0.0.0
@@ -41,8 +41,9 @@ apprentice_code:
 """)
 
 
-def generateCardEntry(file, setName, card, index):
+def generateCardEntry(file, setName, card, index, includeFlavorText):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
     cost_text = card['Mana Cost']
 
     card_type = card['Card Type'].strip()
@@ -115,8 +116,29 @@ def generateCardEntry(file, setName, card, index):
 
     image = urllib.request.urlretrieve(card['Image Url'], parser_directory + setName + f'/image{index}')
 
-    # TODO: Italics and symbol replacement
-    text_formatted = formatText(card['English Text'])
+    try:
+        text_formatted = formatText(card['English Text + Symbols'])
+    except KeyError:
+        text_formatted = ""
+
+    if includeFlavorText:
+        try:
+            flavor_text = card['Flavor Text']
+        except KeyError:
+            flavor_text = ""
+    else:
+        flavor_text = ""
+
+    if card_subtype != "" and type_text == 's':
+        civspell_text = '1'
+    else:
+        civspell_text = ''
+
+    if 'c' in symbol_text:
+        type_color = '1'
+    else:
+        type_color = ''
+
     card_name = card['Name']
 
     file.write(f"""card:
@@ -131,25 +153,27 @@ def generateCardEntry(file, setName, card, index):
 \tsymbol_text: {symbol_text}
 \timage: image{index}
 \tflavor: 
-\t\t<font:ITC Officina Sans><size:40></size></font>
+\t\t<font:ITC Officina Sans>{flavor_text}<size:40></size></font>
 \teffect: 
 \t\t{text_formatted}
 \ttext: 
 \t\t{text_formatted}<sep><line>
-\t\t</line></sep><font:ITC Officina Sans><size:40></size></font>
+\t\t</line></sep><font:ITC Officina Sans><size:40>{flavor_text}</size></font>
 \tname: {card_name}
 \tsubtype: {card_subtype}
+\tcivspell_text: {civspell_text}
+\ttype_color: {type_color}
 """)
 
 
-def makeSet(setName, cardDetailsList):
+def makeSet(setName, cardDetailsList, includeFlavorText=False):
     os.makedirs(parser_directory + setName, exist_ok=True)
     with open(parser_directory + setName + '/set', 'w', encoding='UTF-8') as setFile:
-        generateFileBeggining(setFile)
+        generateFileBeginning(setFile)
         i = 1
         for card in cardDetailsList:
             i += 1
-            generateCardEntry(setFile, setName, card, i)
+            generateCardEntry(setFile, setName, card, i, includeFlavorText)
         generateFileEnd(setFile)
 
     shutil.make_archive(parser_directory + setName + '.mse-set', 'zip', parser_directory + setName)
