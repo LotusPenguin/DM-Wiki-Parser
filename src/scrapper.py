@@ -47,6 +47,7 @@ def getCards(linkList):
             cardPageContentRows = cardPageContent.find_all('tr')
 
             cardDict = {}
+            # TODO: change name acquirement to fix < and > deletion
             name = cardPageContentRows[0].find('th').find('div').find(string=True, recursive=False)
             cardPageContentRows.pop(0)
             cardDict['Name'] = name
@@ -83,7 +84,7 @@ if __name__ == '__main__':
 
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input
-    SET_URL = "https://duelmasters.fandom.com/wiki/DM23-RP1_Battle_Tales_of_Twin_Dragons"
+    SET_URL = "https://duelmasters.fandom.com/wiki/DMRP-17_RexStars_and_Dispector"
     includeFlavorText = False
 
     start = time.time()

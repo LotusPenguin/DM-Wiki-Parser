@@ -14,6 +14,8 @@ def formatText(text):
             .replace('​​', '\n')
             .strip('\n')
             .replace('\n\n', '\n')
+            .replace('\n\n', '\n')
+            .replace('\n\n', '\n')
             .replace('\n', '\n\t\t')
             .replace('(', '<i>(')
             .replace(')', ')</i>')
