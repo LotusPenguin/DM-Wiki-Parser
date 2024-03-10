@@ -1,14 +1,13 @@
-import csv
-import time
-import types
 import json
+import os
+import time
 
 import requests
 from bs4 import BeautifulSoup, Tag
 
 from config import *
-from utils import *
 from parser import makeSet
+from utils import *
 
 
 def getPageResponse(URL):
@@ -72,7 +71,11 @@ def getCards(linkList):
             println(IndexError)
     return returnedList
 
+
 if __name__ == '__main__':
+    os.makedirs(parser_directory, exist_ok=True)
+    os.makedirs(scrapped_directory, exist_ok=True)
+
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input
     SET_URL = "https://duelmasters.fandom.com/wiki/DM23-RP2X_Chaos_of_Wicked_Ninjas:_Adrenaline_Pack"
