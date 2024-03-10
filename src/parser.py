@@ -1,8 +1,28 @@
-import urllib.request
 import os
 import shutil
+import urllib.request
 from datetime import datetime
+
 from config import *
+from utils import stringButBetter
+
+
+# TODO: change text source to formatted raw to preserve symbol usage (eliminates issues with different wording etc.
+def formatText(text):
+    text = f'<b>{text}</b>'
+    text = stringButBetter(text)
+    text = (text
+            .replace('​', '')
+            .replace('■', '\n\t\t■')
+            .replace('(', '<i>(')
+            .replace(')', ')</i>')
+            .replace('Blocker', '\n\t\t<sym>Blocker</sym> Blocker')
+            .replace_nth('Shield Trigger Plus', '\n\t\t<sym>Shield Trigger Plus</sym>Shield Trigger Plus', 1)
+            .replace('►', '\n\t\t➤')
+
+            .replace_nth('\n', '', 1)
+            )
+    return text
 
 
 def generateFileBeggining(file):
@@ -12,6 +32,7 @@ game_version: 0.0.0
 stylesheet: style
 stylesheet_version: 0.0.0
 """)
+
 
 def generateFileEnd(file):
     file.write("""version_control:
@@ -93,8 +114,8 @@ def generateCardEntry(file, setName, card, index):
 
     image = urllib.request.urlretrieve(card['Image Url'], parser_directory + setName + f'/image{index}')
 
-    #TODO: Italics and symbol replacement
-    text_formatted = card['English Text']
+    # TODO: Italics and symbol replacement
+    text_formatted = formatText(card['English Text'])
     card_name = card['Name']
 
     file.write(f"""card:
