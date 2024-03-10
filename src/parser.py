@@ -16,11 +16,11 @@ def formatText(text):
             .replace('■', '\n\t\t■')
             .replace('(', '<i>(')
             .replace(')', ')</i>')
-            .replace('Blocker', '\n\t\t<sym>Blocker</sym> Blocker')
-            .replace_nth('Shield Trigger Plus', '\n\t\t<sym>Shield Trigger Plus</sym>Shield Trigger Plus', 1)
+            .replace(' Blocker', '\n\t\t<sym>Blocker</sym> Blocker')
+            .replace_nth(' Shield Trigger Plus', '\n\t\t<sym>Shield Trigger Plus</sym> Shield Trigger Plus', 1)
             .replace('►', '\n\t\t➤')
 
-            .replace_nth('\n', '', 1)
+            .replace_nth('\n\t\t', '', 1)
             )
     return text
 
@@ -45,7 +45,8 @@ def generateCardEntry(file, setName, card, index):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     cost_text = card['Mana Cost']
 
-    match card['Card Type']:
+    card_type = card['Card Type'].strip()
+    match card_type:
         case "Creature":
             type_text = 'c'
         case "Spell":
