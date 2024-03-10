@@ -19,10 +19,6 @@ def getPageResponse(URL):
             time.sleep(5)
 
 
-def cardPageSelector(tag):
-    return tag.name == "a" and tag.has_attr("title")
-
-
 def find_previous_of_tag(tag, to_find):
     prev_tag = tag.previous_sibling
     try:
