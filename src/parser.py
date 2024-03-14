@@ -7,11 +7,12 @@ from config import *
 from utils import stringButBetter
 
 
-def formatText(text):
+def formatText(text, card_type):
     text = stringButBetter(text)
     text = (text
             .strip('[]')
             .replace('​​', '\n')
+            .replace('​', '\n')
             .strip('\n')
             .replace('\n\n', '\n')
             .replace('\n\n', '\n')
@@ -24,6 +25,21 @@ def formatText(text):
             .replace('HASHsymHASH', '<sym>')
             .replace('HASH/symHASH', '</sym>')
             )
+    if 'Creature' in card_type:
+        text = (text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this creature is put into your hand from your shield zone, you may summon it for no cost.)"
+        ))
+    elif card_type == 'Spell':
+        text = (text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this spell is put into your hand from your shield zone, you may cast it for no cost.)"
+        ))
+    elif card_type == 'Tamaseed':
+        text = (text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this tamaseed is put into your hand from your shield zone, you may use it for no cost.)"
+        ))
     text = f'<b>{text}</b>'
     return text
 
@@ -120,7 +136,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     image = urllib.request.urlretrieve(card['Image Url'], parser_directory + setName + f'/image{index}')
 
     try:
-        text_formatted = formatText(card['English Text + Symbols'])
+        text_formatted = formatText(card['English Text + Symbols'], card_type)
     except KeyError:
         text_formatted = ""
 
