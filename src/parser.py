@@ -72,9 +72,9 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
         power_number = ""
 
     power_text_number = 0
-    if '+' in power_number:
+    if '+' in power_number or '-' in power_number:
         power_text_number += 1
-        power_number = power_number.replace("+", "")
+        power_number = power_number.replace("+", "").replace("-", "")
 
     if power_number == "":
         power_text = ""
