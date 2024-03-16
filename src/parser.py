@@ -154,6 +154,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     if 'Jokers' in card_subtype:
         symbol_text += 'j'
 
+    #TODO: ESGRAN integration
     image = urllib.request.urlretrieve(card['Image Url'], parser_directory + setName + f'/image{index}')
 
     try:
