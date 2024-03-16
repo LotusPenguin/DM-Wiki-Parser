@@ -9,6 +9,33 @@ from utils import stringButBetter
 
 def formatText(text, card_type):
     text = stringButBetter(text)
+    text = applyInconsistencyFixes(text)
+    text = applyTextFormattingFixes(text)
+    text = applyShieldTriggerCardTypeFixes(card_type, text)
+    text = f'<b>{text}</b>'
+    return text
+
+
+def applyShieldTriggerCardTypeFixes(card_type, text):
+    if 'Creature' in card_type:
+        text = text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this creature is put into your hand from your shield zone, you may summon it for no cost.)"
+        )
+    elif card_type == 'Spell':
+        text = text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this spell is put into your hand from your shield zone, you may cast it for no cost.)"
+        )
+    elif card_type == 'Tamaseed':
+        text = text.replace(
+            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
+            "(When this tamaseed is put into your hand from your shield zone, you may use it for no cost.)"
+        )
+    return text
+
+
+def applyTextFormattingFixes(text):
     text = (text
             .strip('[]')
             .replace('​​', '\n')
@@ -25,22 +52,15 @@ def formatText(text, card_type):
             .replace('HASHsymHASH', '<sym>')
             .replace('HASH/symHASH', '</sym>')
             )
-    if 'Creature' in card_type:
-        text = (text.replace(
-            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
-            "(When this creature is put into your hand from your shield zone, you may summon it for no cost.)"
-        ))
-    elif card_type == 'Spell':
-        text = (text.replace(
-            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
-            "(When this spell is put into your hand from your shield zone, you may cast it for no cost.)"
-        ))
-    elif card_type == 'Tamaseed':
-        text = (text.replace(
-            "(When this Card Type is put into your hand from your shield zone, you may use it for no cost.)",
-            "(When this tamaseed is put into your hand from your shield zone, you may use it for no cost.)"
-        ))
-    text = f'<b>{text}</b>'
+    return text
+
+
+def applyInconsistencyFixes(text):
+    # Guard Strike inconsistency fix
+    text = text.replace(
+        "(When you add this creature from your shield zone to your hand, you may reveal it to your opponent and choose one of your opponent's creatures. That creature can't attack this turn.\n",
+        "(When you add this creature from your shield zone to your hand, you may reveal it to your opponent and choose one of your opponent's creatures. That creature can't attack this turn.)\n"
+    )
     return text
 
 
@@ -88,16 +108,17 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
         power_number = ""
 
     power_text_number = 0
-    if '+' in power_number or '-' in power_number:
-        power_text_number += 1
-        power_number = power_number.replace("+", "").replace("-", "")
+    power_number_value = power_number.replace("+", "").replace("-", "")
 
-    if power_number == "":
+    if power_number_value == "":
         power_text = ""
-    elif int(power_number) < 10000:
+    elif int(power_number_value) < 10000:
         power_text_number = 1
     else:
         power_text_number = 2
+
+    if '+' in power_number or '-' in power_number:
+        power_text_number += 1
 
     if power_text_number > 0:
         power_text = str(power_text_number)
