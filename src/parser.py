@@ -47,6 +47,7 @@ def applyTextFormattingFixes(text):
             .replace('\n', '\n\t\t')
             .replace('(', '<i>(')
             .replace(')', ')</i>')
+            .replace('▼', '<sym>t</sym>➤')
             .replace('►', '<sym>t</sym>➤')
             .replace('▶', '<sym>t</sym>➤')
             .replace('HASHsymHASH', '<sym>')
