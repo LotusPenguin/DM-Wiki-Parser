@@ -2,6 +2,7 @@ import os
 import shutil
 import urllib.request
 from datetime import datetime
+from dependencies.realesrgan import inference_realesrgan
 
 from config import *
 from utils import stringButBetter
@@ -157,8 +158,9 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
 
     #TODO: ESGRAN integration
     raw_image_path = raw_image_directory + setName + f'/image{index}.png'
+    upscaled_image_directory = parser_directory + setName
     image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
-
+    inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
 
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
@@ -220,6 +222,9 @@ def makeSet(setName, cardDetailsList, includeFlavorText=False):
             i += 1
             generateCardEntry(setFile, setName, card, i, includeFlavorText)
         generateFileEnd(setFile)
+
+    for file in os.listdir(raw_image_directory + setName):
+        os.rename(file, file.removesuffix('.png'))
 
     shutil.make_archive(parser_directory + setName + '.mse-set', 'zip', parser_directory + setName)
 

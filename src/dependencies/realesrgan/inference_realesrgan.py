@@ -9,9 +9,9 @@ from realesrgan import RealESRGANer
 from realesrgan.archs.srvgg_arch import SRVGGNetCompact
 
 
-def main():
+def upscale(setName, input_path, output_path):
     """Inference demo for Real-ESRGAN.
-    """
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', type=str, default='inputs', help='Input image or folder')
     parser.add_argument(
@@ -52,8 +52,10 @@ def main():
     parser.add_argument(
         '-g', '--gpu-id', type=int, default=None, help='gpu device to use (default=None) can be 0,1,2 for multi-gpu')
     parser.add_argument('-xpu', '--xpu', action='store_true', help='Use xpu backend [NOT FUNCTIONAL]')
+    #args = parser.parse_args()
+    """
 
-    args = parser.parse_args()
+    args = argparse.Namespace(input=f'raw\\{setName}', model_name='RealESRGAN_x4plus_anime_6B', output=f'parsed\\{setName}', denoise_strength=0.5, outscale=4, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
 
     # determine models according to model names
     args.model_name = args.model_name.split('.')[0]
