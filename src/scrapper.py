@@ -81,6 +81,7 @@ def getCards(linkList):
 if __name__ == '__main__':
     os.makedirs(parser_directory, exist_ok=True)
     os.makedirs(scrapped_directory, exist_ok=True)
+    os.makedirs(raw_image_directory, exist_ok=True)
 
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input

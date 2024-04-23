@@ -50,6 +50,7 @@ class RealESRGANer():
                 f'cuda:{gpu_id}' if torch.cuda.is_available() else 'cpu') if device is None else device
         else:
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') if device is None else device
+            print(f'Using device: {self.device}')
 
         if isinstance(model_path, list):
             # dni
@@ -192,6 +193,7 @@ class RealESRGANer():
 
     @torch.no_grad()
     def enhance(self, img, outscale=None, alpha_upsampler='realesrgan'):
+        print("Enhance initiated")
         h_input, w_input = img.shape[0:2]
         # img: numpy
         img = img.astype(np.float32)
@@ -216,11 +218,13 @@ class RealESRGANer():
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         # ------------------- process image (without the alpha channel) ------------------- #
+        print("Processing sequence")
         self.pre_process(img)
         if self.tile_size > 0:
             self.tile_process()
         else:
             self.process()
+        print("Post-processing")
         output_img = self.post_process()
         output_img = output_img.data.squeeze().float().cpu().clamp_(0, 1).numpy()
         output_img = np.transpose(output_img[[2, 1, 0], :, :], (1, 2, 0))
@@ -228,6 +232,7 @@ class RealESRGANer():
             output_img = cv2.cvtColor(output_img, cv2.COLOR_BGR2GRAY)
 
         # ------------------- process the alpha channel if necessary ------------------- #
+        print("Processing alpha channel")
         if img_mode == 'RGBA':
             if alpha_upsampler == 'realesrgan':
                 self.pre_process(alpha)
@@ -248,6 +253,7 @@ class RealESRGANer():
             output_img[:, :, 3] = output_alpha
 
         # ------------------------------ return ------------------------------ #
+        print("Output sequence")
         if max_range == 65535:  # 16-bit image
             output = (output_img * 65535.0).round().astype(np.uint16)
         else:

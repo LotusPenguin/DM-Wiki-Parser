@@ -156,7 +156,8 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
         symbol_text += 'j'
 
     #TODO: ESGRAN integration
-    image = urllib.request.urlretrieve(card['Image Url'], parser_directory + setName + f'/image{index}')
+    raw_image_path = raw_image_directory + setName + f'/image{index}.png'
+    image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
 
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
@@ -210,6 +211,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
 
 def makeSet(setName, cardDetailsList, includeFlavorText=False):
     os.makedirs(parser_directory + setName, exist_ok=True)
+    os.makedirs(raw_image_directory + setName, exist_ok=True)
     with open(parser_directory + setName + '/set', 'w', encoding='UTF-8') as setFile:
         generateFileBeginning(setFile)
         i = 1
