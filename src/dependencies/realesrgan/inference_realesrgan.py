@@ -56,7 +56,9 @@ def upscale(setName, input_path, output_path):
     #args = parser.parse_args()
     """
 
-    args = argparse.Namespace(input=f'{input_path}', model_name='RealESRGAN_x4plus_anime_6B', output=f'{output_path}', denoise_strength=0.5, outscale=4, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
+    imagefile = cv2.imread(input_path)
+    outscale = float(2080 / imagefile.shape[0])
+    args = argparse.Namespace(input=f'{input_path}', model_name='RealESRGAN_x4plus_anime_6B', output=f'{output_path}', denoise_strength=0.5, outscale=outscale, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
 
     # determine models according to model names
     args.model_name = args.model_name.split('.')[0]
