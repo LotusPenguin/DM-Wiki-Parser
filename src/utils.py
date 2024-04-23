@@ -42,5 +42,6 @@ class stringButBetter(str):
         return stringButBetter(result)
 
 
-def println(to_print):
-    print((datetime.now()).strftime("[%H:%M:%S] ") + str(to_print))
+def println(*to_print):
+    print((datetime.now()).strftime("[%H:%M:%S] "), end='')
+    print(*to_print)
