@@ -159,6 +159,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     raw_image_path = raw_image_directory + setName + f'/image{index}.png'
     image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
 
+
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
     except KeyError:

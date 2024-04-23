@@ -51,6 +51,7 @@ def main():
         help='Image extension. Options: auto | jpg | png, auto means using the same extension as inputs')
     parser.add_argument(
         '-g', '--gpu-id', type=int, default=None, help='gpu device to use (default=None) can be 0,1,2 for multi-gpu')
+    parser.add_argument('-xpu', '--xpu', action='store_true', help='Use xpu backend [NOT FUNCTIONAL]')
 
     args = parser.parse_args()
 
@@ -103,6 +104,12 @@ def main():
         model_path = [model_path, wdn_model_path]
         dni_weight = [args.denoise_strength, 1 - args.denoise_strength]
 
+    #not working requires further code adjustments
+    if args.xpu:
+        device = 'xpu'
+    else:
+        device = None
+
     # restorer
     upsampler = RealESRGANer(
         scale=netscale,
@@ -113,6 +120,7 @@ def main():
         tile_pad=args.tile_pad,
         pre_pad=args.pre_pad,
         half=not args.fp32,
+        device=device,
         gpu_id=args.gpu_id)
 
     if args.face_enhance:  # Use GFPGAN for face enhancement
