@@ -8,7 +8,7 @@ The script-embedded version of the upscaler currently works well only with CUDA 
 Roadmap:
 - [x] Basic set parsing capabilities - 16.03.2024
 - [x] [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/) integration for image upscaling - 23.04.2024
-- [ ] Basic CLI Interface
+- [ ] Basic CLI Interface, including single card/custom card lists processing
 - [ ] First alpha release as ncnn package
 - [ ] Hash-based image indexing/data structures to reduce redundant processing
 - [ ] GUI
