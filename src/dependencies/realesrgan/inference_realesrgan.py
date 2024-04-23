@@ -2,11 +2,11 @@ import argparse
 import cv2
 import glob
 import os
-from basicsr.archs.rrdbnet_arch import RRDBNet
-from basicsr.utils.download_util import load_file_from_url
+from src.dependencies.realesrgan.basicsr.archs.rrdbnet_arch import RRDBNet
+from src.dependencies.realesrgan.basicsr.utils.download_util import load_file_from_url
 
-from realesrgan import RealESRGANer
-from realesrgan.archs.srvgg_arch import SRVGGNetCompact
+from src.dependencies.realesrgan.realesrgan import RealESRGANer
+from src.dependencies.realesrgan.realesrgan.archs.srvgg_arch import SRVGGNetCompact
 
 
 def upscale(setName, input_path, output_path):
@@ -55,7 +55,7 @@ def upscale(setName, input_path, output_path):
     #args = parser.parse_args()
     """
 
-    args = argparse.Namespace(input=f'raw\\{setName}', model_name='RealESRGAN_x4plus_anime_6B', output=f'parsed\\{setName}', denoise_strength=0.5, outscale=4, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
+    args = argparse.Namespace(input=f'{input_path}', model_name='RealESRGAN_x4plus_anime_6B', output=f'{output_path}', denoise_strength=0.5, outscale=4, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
 
     # determine models according to model names
     args.model_name = args.model_name.split('.')[0]
@@ -170,7 +170,3 @@ def upscale(setName, input_path, output_path):
             else:
                 save_path = os.path.join(args.output, f'{imgname}_{args.suffix}.{extension}')
             cv2.imwrite(save_path, output)
-
-
-if __name__ == '__main__':
-    main()

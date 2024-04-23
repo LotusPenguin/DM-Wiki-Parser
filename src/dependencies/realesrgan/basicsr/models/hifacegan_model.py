@@ -3,11 +3,11 @@ from collections import OrderedDict
 from os import path as osp
 from tqdm import tqdm
 
-from basicsr.archs import build_network
-from basicsr.losses import build_loss
-from basicsr.metrics import calculate_metric
-from basicsr.utils import imwrite, tensor2img
-from basicsr.utils.registry import MODEL_REGISTRY
+from src.dependencies.realesrgan.basicsr.archs import build_network
+from src.dependencies.realesrgan.basicsr.losses import build_loss
+from src.dependencies.realesrgan.basicsr.metrics import calculate_metric
+from src.dependencies.realesrgan.basicsr.utils import imwrite, tensor2img
+from src.dependencies.realesrgan.basicsr.utils.registry import MODEL_REGISTRY
 from .sr_model import SRModel
 
 

@@ -7,8 +7,8 @@ import os
 import shutil
 import subprocess
 import torch
-from basicsr.archs.rrdbnet_arch import RRDBNet
-from basicsr.utils.download_util import load_file_from_url
+from src.dependencies.realesrgan.basicsr.archs.rrdbnet_arch import RRDBNet
+from src.dependencies.realesrgan.basicsr.utils.download_util import load_file_from_url
 from os import path as osp
 from tqdm import tqdm
 

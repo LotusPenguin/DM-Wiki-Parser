@@ -1,5 +1,5 @@
 import importlib
-from basicsr.utils import scandir
+from src.dependencies.realesrgan.basicsr.utils import scandir
 from os import path as osp
 
 # automatically scan and import model modules for registry

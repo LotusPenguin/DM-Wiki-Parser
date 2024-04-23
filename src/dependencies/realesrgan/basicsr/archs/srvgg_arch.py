@@ -1,7 +1,7 @@
 from torch import nn as nn
 from torch.nn import functional as F
 
-from basicsr.utils.registry import ARCH_REGISTRY
+from src.dependencies.realesrgan.basicsr.utils.registry import ARCH_REGISTRY
 
 
 @ARCH_REGISTRY.register(suffix='basicsr')

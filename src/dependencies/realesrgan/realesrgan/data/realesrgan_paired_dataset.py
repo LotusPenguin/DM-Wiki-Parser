@@ -1,8 +1,8 @@
 import os
-from basicsr.data.data_util import paired_paths_from_folder, paired_paths_from_lmdb
-from basicsr.data.transforms import augment, paired_random_crop
-from basicsr.utils import FileClient, imfrombytes, img2tensor
-from basicsr.utils.registry import DATASET_REGISTRY
+from src.dependencies.realesrgan.basicsr.data.data_util import paired_paths_from_folder, paired_paths_from_lmdb
+from src.dependencies.realesrgan.basicsr.data.transforms import augment, paired_random_crop
+from src.dependencies.realesrgan.basicsr.utils import FileClient, imfrombytes, img2tensor
+from src.dependencies.realesrgan.basicsr.utils.registry import DATASET_REGISTRY
 from torch.utils import data as data
 from torchvision.transforms.functional import normalize
 

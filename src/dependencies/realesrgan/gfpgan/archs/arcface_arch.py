@@ -1,5 +1,5 @@
 import torch.nn as nn
-from basicsr.utils.registry import ARCH_REGISTRY
+from src.dependencies.realesrgan.basicsr.utils.registry import ARCH_REGISTRY
 
 
 def conv3x3(inplanes, outplanes, stride=1):

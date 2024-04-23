@@ -1,7 +1,7 @@
 import torch
 from collections import OrderedDict
 
-from basicsr.utils.registry import MODEL_REGISTRY
+from src.dependencies.realesrgan.basicsr.utils.registry import MODEL_REGISTRY
 from .srgan_model import SRGANModel
 
 

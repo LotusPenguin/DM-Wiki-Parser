@@ -4,9 +4,9 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from basicsr.ops.fused_act import FusedLeakyReLU, fused_leaky_relu
-from basicsr.ops.upfirdn2d import upfirdn2d
-from basicsr.utils.registry import ARCH_REGISTRY
+from src.dependencies.realesrgan.basicsr.ops.fused_act import FusedLeakyReLU, fused_leaky_relu
+from src.dependencies.realesrgan.basicsr.ops.upfirdn2d import upfirdn2d
+from src.dependencies.realesrgan.basicsr.utils.registry import ARCH_REGISTRY
 
 
 class NormStyleCode(nn.Module):

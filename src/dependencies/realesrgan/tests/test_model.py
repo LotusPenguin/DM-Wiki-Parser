@@ -1,8 +1,8 @@
 import torch
 import yaml
-from basicsr.archs.rrdbnet_arch import RRDBNet
-from basicsr.data.paired_image_dataset import PairedImageDataset
-from basicsr.losses.losses import GANLoss, L1Loss, PerceptualLoss
+from src.dependencies.realesrgan.basicsr.archs.rrdbnet_arch import RRDBNet
+from src.dependencies.realesrgan.basicsr.data.paired_image_dataset import PairedImageDataset
+from src.dependencies.realesrgan.basicsr.losses.losses import GANLoss, L1Loss, PerceptualLoss
 
 from realesrgan.archs.discriminator_arch import UNetDiscriminatorSN
 from realesrgan.models.realesrgan_model import RealESRGANModel

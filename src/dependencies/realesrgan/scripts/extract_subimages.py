@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import os
 import sys
-from basicsr.utils import scandir
+from src.dependencies.realesrgan.basicsr.utils import scandir
 from multiprocessing import Pool
 from os import path as osp
 from tqdm import tqdm

@@ -3,12 +3,12 @@ import random
 import torch
 from torch.nn import functional as F
 
-from basicsr.data.degradations import random_add_gaussian_noise_pt, random_add_poisson_noise_pt
-from basicsr.data.transforms import paired_random_crop
-from basicsr.models.sr_model import SRModel
-from basicsr.utils import DiffJPEG, USMSharp
-from basicsr.utils.img_process_util import filter2D
-from basicsr.utils.registry import MODEL_REGISTRY
+from src.dependencies.realesrgan.basicsr.data.degradations import random_add_gaussian_noise_pt, random_add_poisson_noise_pt
+from src.dependencies.realesrgan.basicsr.data.transforms import paired_random_crop
+from src.dependencies.realesrgan.basicsr.models.sr_model import SRModel
+from src.dependencies.realesrgan.basicsr.utils import DiffJPEG, USMSharp
+from src.dependencies.realesrgan.basicsr.utils.img_process_util import filter2D
+from src.dependencies.realesrgan.basicsr.utils.registry import MODEL_REGISTRY
 
 
 @MODEL_REGISTRY.register(suffix='basicsr')

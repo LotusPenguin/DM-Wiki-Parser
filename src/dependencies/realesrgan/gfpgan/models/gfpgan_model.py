@@ -1,13 +1,13 @@
 import math
 import os.path as osp
 import torch
-from basicsr.archs import build_network
-from basicsr.losses import build_loss
-from basicsr.losses.gan_loss import r1_penalty
-from basicsr.metrics import calculate_metric
-from basicsr.models.base_model import BaseModel
-from basicsr.utils import get_root_logger, imwrite, tensor2img
-from basicsr.utils.registry import MODEL_REGISTRY
+from src.dependencies.realesrgan.basicsr.archs import build_network
+from src.dependencies.realesrgan.basicsr.losses import build_loss
+from src.dependencies.realesrgan.basicsr.losses.gan_loss import r1_penalty
+from src.dependencies.realesrgan.basicsr.metrics import calculate_metric
+from src.dependencies.realesrgan.basicsr.models.base_model import BaseModel
+from src.dependencies.realesrgan.basicsr.utils import get_root_logger, imwrite, tensor2img
+from src.dependencies.realesrgan.basicsr.utils.registry import MODEL_REGISTRY
 from collections import OrderedDict
 from torch.nn import functional as F
 from torchvision.ops import roi_align

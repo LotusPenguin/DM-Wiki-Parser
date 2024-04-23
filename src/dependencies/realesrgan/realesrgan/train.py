@@ -1,6 +1,6 @@
 # flake8: noqa
 import os.path as osp
-from basicsr.train import train_pipeline
+from src.dependencies.realesrgan.basicsr.train import train_pipeline
 
 import realesrgan.archs
 import realesrgan.data

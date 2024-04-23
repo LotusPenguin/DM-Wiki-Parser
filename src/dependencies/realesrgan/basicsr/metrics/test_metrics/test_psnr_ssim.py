@@ -1,9 +1,9 @@
 import cv2
 import torch
 
-from basicsr.metrics import calculate_psnr, calculate_ssim
-from basicsr.metrics.psnr_ssim import calculate_psnr_pt, calculate_ssim_pt
-from basicsr.utils import img2tensor
+from src.dependencies.realesrgan.basicsr.metrics import calculate_psnr, calculate_ssim
+from src.dependencies.realesrgan.basicsr.metrics.psnr_ssim import calculate_psnr_pt, calculate_ssim_pt
+from src.dependencies.realesrgan.basicsr.utils import img2tensor
 
 
 def test(img_path, img_path2, crop_border, test_y_channel=False):

@@ -1,7 +1,7 @@
 import math
 import random
 import torch
-from basicsr.utils.registry import ARCH_REGISTRY
+from src.dependencies.realesrgan.basicsr.utils.registry import ARCH_REGISTRY
 from torch import nn
 from torch.nn import functional as F
 
