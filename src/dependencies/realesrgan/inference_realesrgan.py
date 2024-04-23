@@ -7,6 +7,7 @@ from src.dependencies.realesrgan.basicsr.utils.download_util import load_file_fr
 
 from src.dependencies.realesrgan.realesrgan import RealESRGANer
 from src.dependencies.realesrgan.realesrgan.archs.srvgg_arch import SRVGGNetCompact
+from src.utils import *
 
 
 def upscale(setName, input_path, output_path):
@@ -142,7 +143,7 @@ def upscale(setName, input_path, output_path):
 
     for idx, path in enumerate(paths):
         imgname, extension = os.path.splitext(os.path.basename(path))
-        print('Testing', idx, imgname)
+        println('Testing', idx, imgname)
 
         img = cv2.imread(path, cv2.IMREAD_UNCHANGED)
         if len(img.shape) == 3 and img.shape[2] == 4:
@@ -156,8 +157,8 @@ def upscale(setName, input_path, output_path):
             else:
                 output, _ = upsampler.enhance(img, outscale=args.outscale)
         except RuntimeError as error:
-            print('Error', error)
-            print('If you encounter CUDA out of memory, try to set --tile with a smaller number.')
+            println('Error', error)
+            println('If you encounter CUDA out of memory, try to set --tile with a smaller number.')
         else:
             if args.ext == 'auto':
                 extension = extension[1:]

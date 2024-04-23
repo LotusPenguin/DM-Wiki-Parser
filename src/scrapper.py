@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input
-    SET_URL = "https://duelmasters.fandom.com/wiki/DM23-RP4_Dragon_Emperor_God_Bakuterasu"
+    SET_URL = "https://duelmasters.fandom.com/wiki/DM24-RP1_Demon_of_Hypermoon"
     includeFlavorText = False
 
     start = time.time()

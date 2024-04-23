@@ -156,7 +156,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     if 'Jokers' in card_subtype:
         symbol_text += 'j'
 
-    #TODO: ESGRAN integration
+    # ESGRAN integration
     raw_image_path = raw_image_directory + setName + f'/image{index}.png'
     upscaled_image_directory = parser_directory + setName
     image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
@@ -212,6 +212,12 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
 """)
 
 
+def removeFileSuffixes(setName):
+    for file in os.listdir(parser_directory + setName):
+        os.rename(os.path.join(parser_directory, setName, file),
+                  os.path.join(parser_directory, setName, file).removesuffix('.png'))
+
+
 def makeSet(setName, cardDetailsList, includeFlavorText=False):
     os.makedirs(parser_directory + setName, exist_ok=True)
     os.makedirs(raw_image_directory + setName, exist_ok=True)
@@ -223,8 +229,7 @@ def makeSet(setName, cardDetailsList, includeFlavorText=False):
             generateCardEntry(setFile, setName, card, i, includeFlavorText)
         generateFileEnd(setFile)
 
-    for file in os.listdir(raw_image_directory + setName):
-        os.rename(file, file.removesuffix('.png'))
+    removeFileSuffixes(setName)
 
     shutil.make_archive(parser_directory + setName + '.mse-set', 'zip', parser_directory + setName)
 

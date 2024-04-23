@@ -7,6 +7,7 @@ import threading
 import torch
 from src.dependencies.realesrgan.basicsr.utils.download_util import load_file_from_url
 from torch.nn import functional as F
+from src.utils import *
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -50,7 +51,7 @@ class RealESRGANer():
                 f'cuda:{gpu_id}' if torch.cuda.is_available() else 'cpu') if device is None else device
         else:
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') if device is None else device
-            print(f'Using device: {self.device}')
+            println(f'Using device: {self.device}')
 
         if isinstance(model_path, list):
             # dni
@@ -160,8 +161,8 @@ class RealESRGANer():
                     with torch.no_grad():
                         output_tile = self.model(input_tile)
                 except RuntimeError as error:
-                    print('Error', error)
-                print(f'\tTile {tile_idx}/{tiles_x * tiles_y}')
+                    println('Error', error)
+                println(f'\tTile {tile_idx}/{tiles_x * tiles_y}')
 
                 # output tile area on total image
                 output_start_x = input_start_x * self.scale
@@ -193,13 +194,13 @@ class RealESRGANer():
 
     @torch.no_grad()
     def enhance(self, img, outscale=None, alpha_upsampler='realesrgan'):
-        print("Enhance initiated")
+        println("Enhance initiated")
         h_input, w_input = img.shape[0:2]
         # img: numpy
         img = img.astype(np.float32)
         if np.max(img) > 256:  # 16-bit image
             max_range = 65535
-            print('\tInput is a 16-bit image')
+            println('\tInput is a 16-bit image')
         else:
             max_range = 255
         img = img / max_range
@@ -218,13 +219,13 @@ class RealESRGANer():
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         # ------------------- process image (without the alpha channel) ------------------- #
-        print("Processing sequence")
+        println("Processing sequence")
         self.pre_process(img)
         if self.tile_size > 0:
             self.tile_process()
         else:
             self.process()
-        print("Post-processing")
+        println("Post-processing")
         output_img = self.post_process()
         output_img = output_img.data.squeeze().float().cpu().clamp_(0, 1).numpy()
         output_img = np.transpose(output_img[[2, 1, 0], :, :], (1, 2, 0))
@@ -232,7 +233,7 @@ class RealESRGANer():
             output_img = cv2.cvtColor(output_img, cv2.COLOR_BGR2GRAY)
 
         # ------------------- process the alpha channel if necessary ------------------- #
-        print("Processing alpha channel")
+        println("Processing alpha channel")
         if img_mode == 'RGBA':
             if alpha_upsampler == 'realesrgan':
                 self.pre_process(alpha)
@@ -253,7 +254,7 @@ class RealESRGANer():
             output_img[:, :, 3] = output_alpha
 
         # ------------------------------ return ------------------------------ #
-        print("Output sequence")
+        println("Output sequence")
         if max_range == 65535:  # 16-bit image
             output = (output_img * 65535.0).round().astype(np.uint16)
         else:
@@ -316,4 +317,4 @@ class IOConsumer(threading.Thread):
             output = msg['output']
             save_path = msg['save_path']
             cv2.imwrite(save_path, output)
-        print(f'IO worker {self.qid} is done.')
+        println(f'IO worker {self.qid} is done.')
