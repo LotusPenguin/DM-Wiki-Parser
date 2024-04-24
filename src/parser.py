@@ -190,7 +190,9 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     else:
         civspell_text = ''
 
-    if 'c' in symbol_text:
+    if card_subtype != "" and type_text == 's':
+        type_color = '1'
+    elif 'c' in symbol_text or 'j' in symbol_text:
         type_color = '1'
     else:
         type_color = ''
