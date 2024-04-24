@@ -5,7 +5,7 @@ from datetime import datetime
 from dependencies.realesrgan import inference_realesrgan
 
 from config import *
-from utils import stringButBetter
+from utils import *
 
 
 def formatText(text, card_type):
@@ -85,7 +85,13 @@ apprentice_code:
 def generateCardEntry(file, setName, card, index, includeFlavorText):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-    cost_text = card['Mana Cost']
+    card_name = card['Name']
+
+    try:
+        cost_text = card['Mana Cost']
+    except KeyError:
+        cost_text = ""
+        println(f"No cost found for {card_name}")
 
     card_type = card['Card Type'].strip()
     match card_type:
@@ -114,6 +120,8 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
 
     if power_number_value == "":
         power_text = ""
+    elif power_number_value == "∞":
+        power_text_number = 1
     elif int(power_number_value) < 10000:
         power_text_number = 1
     else:
@@ -124,6 +132,8 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
 
     if power_text_number > 0:
         power_text = str(power_text_number)
+    else:
+        power_text = ""
 
     try:
         card_civ = card['Civilization']
@@ -184,8 +194,6 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
         type_color = '1'
     else:
         type_color = ''
-
-    card_name = card['Name']
 
     file.write(f"""card:
 \thas_styling: false
