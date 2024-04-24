@@ -9,7 +9,7 @@ Roadmap:
 - [x] Basic set parsing capabilities - 16.03.2024
 - [x] [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/) integration for image upscaling - 23.04.2024
 - [ ] Basic CLI Interface, including single card/custom card lists processing
-- [ ] First alpha release as ncnn package
+- [ ] First alpha release as an all-in-one executable
 - [ ] Hash-based image indexing/data structures to reduce redundant processing
 - [ ] GUI
 - [ ] Splitting code into GUI-functionality modules
