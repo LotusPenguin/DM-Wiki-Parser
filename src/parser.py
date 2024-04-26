@@ -17,6 +17,11 @@ def formatText(text, card_type):
     return text
 
 
+def tagSubstitution(text: str):
+    text = text.replace('<', '')
+    return text
+
+
 def applyShieldTriggerCardTypeFixes(card_type, text):
     if 'Creature' in card_type:
         text = text.replace(
@@ -37,6 +42,7 @@ def applyShieldTriggerCardTypeFixes(card_type, text):
 
 
 def applyTextFormattingFixes(text):
+    text = tagSubstitution(text)
     text = (text
             .strip('[]')
             .replace('​​', '\n')
@@ -85,7 +91,7 @@ apprentice_code:
 def generateCardEntry(file, setName, card, index, includeFlavorText):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-    card_name = card['Name']
+    card_name = tagSubstitution(card['Name'])
 
     try:
         cost_text = card['Mana Cost']
