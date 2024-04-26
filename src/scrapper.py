@@ -87,6 +87,7 @@ if __name__ == '__main__':
     # TODO: Make into a CLI input
     SET_URL = "https://duelmasters.fandom.com/wiki/DM23-EX2_Battle_of_Top!!_Dueking_MAX_2023"
     includeFlavorText = False
+    enableUpscaling = False
 
     start = time.time()
 
@@ -119,7 +120,7 @@ if __name__ == '__main__':
         for card in cardDetailsList:
             f.write(json.dumps(card) + '\n')
 
-    makeSet(setName, cardDetailsList, includeFlavorText)
+    makeSet(setName, cardDetailsList, includeFlavorText, enableUpscaling)
 
     end = time.time()
     println(f"Elapsed time: {end - start}")

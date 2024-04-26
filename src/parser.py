@@ -88,7 +88,7 @@ apprentice_code:
 """)
 
 
-def generateCardEntry(file, setName, card, index, includeFlavorText):
+def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpscaling):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     card_name = tagSubstitution(card['Name'])
@@ -172,11 +172,14 @@ def generateCardEntry(file, setName, card, index, includeFlavorText):
     if 'Jokers' in card_subtype:
         symbol_text += 'j'
 
-    # ESGRAN integration
-    raw_image_path = raw_image_directory + setName + f'/image{index}.png'
     upscaled_image_directory = parser_directory + setName
-    image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
-    inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
+    # ESGRAN integration
+    if enableUpscaling:
+        raw_image_path = raw_image_directory + setName + f'/image{index}.png'
+        image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
+        inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
+    else:
+        image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory)
 
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
@@ -234,7 +237,7 @@ def removeFileSuffixes(setName):
                   os.path.join(parser_directory, setName, file).removesuffix('.png'))
 
 
-def makeSet(setName, cardDetailsList, includeFlavorText=False):
+def makeSet(setName, cardDetailsList, includeFlavorText=False, enableUpscaling=True):
     os.makedirs(parser_directory + setName, exist_ok=True)
     os.makedirs(raw_image_directory + setName, exist_ok=True)
     with open(parser_directory + setName + '/set', 'w', encoding='UTF-8') as setFile:
@@ -242,7 +245,7 @@ def makeSet(setName, cardDetailsList, includeFlavorText=False):
         i = 1
         for card in cardDetailsList:
             i += 1
-            generateCardEntry(setFile, setName, card, i, includeFlavorText)
+            generateCardEntry(setFile, setName, card, i, includeFlavorText, enableUpscaling)
         generateFileEnd(setFile)
 
     removeFileSuffixes(setName)
