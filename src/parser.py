@@ -41,6 +41,7 @@ def applyShieldTriggerCardTypeFixes(card_type, text):
     return text
 
 
+#TODO: Change up the zero width space substitution for something more controllable
 def applyTextFormattingFixes(text):
     text = tagSubstitution(text)
     text = (text

@@ -47,7 +47,6 @@ def getCards(linkList):
             cardPageContentRows = cardPageContent.find_all('tr')
 
             cardDict = {}
-            # TODO: change name acquirement to fix < and > deletion
             name = cardPageContentRows[0].find('th').find('div').find(string=True, recursive=False)
             cardPageContentRows.pop(0)
             cardDict['Name'] = name
