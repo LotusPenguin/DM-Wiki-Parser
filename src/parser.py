@@ -179,7 +179,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
         image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
         inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
     else:
-        image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory)
+        image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory + f'/image{index}.png')
 
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
