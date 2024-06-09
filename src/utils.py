@@ -1,4 +1,6 @@
 from datetime import datetime
+from dependencies.realesrgan import inference_realesrgan
+import os
 
 
 class stringButBetter(str):
@@ -45,3 +47,18 @@ class stringButBetter(str):
 def println(*to_print):
     print((datetime.now()).strftime("[%H:%M:%S] "), end='')
     print(*to_print)
+
+
+def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled"):
+    if not os.path.exists(input_directory):
+        println("Error: invalid input directory")
+
+    for image_file in os.listdir(input_directory):
+        image_path = os.path.join(input_directory, image_file)
+        if not os.path.isfile(image_path):
+            continue
+        inference_realesrgan.upscale(setName, image_path, upscaled_image_directory)
+
+
+if __name__ == '__main__':
+    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\DM 14 (OCTGN)", "C:\\Users\\Pingwin\\Desktop\\Upscaled_DM 14 (OCTGN)")
