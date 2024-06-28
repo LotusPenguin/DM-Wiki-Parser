@@ -41,7 +41,7 @@ def getCards(linkList):
     returnedList = []
     for cardLink in linkList:
         try:
-            cardPage = requests.get(cardLink)
+            cardPage = requests.get(cardLink, timeout=60)
             cardPageParsed = BeautifulSoup(cardPage.content, "html.parser")
             cardPageContent = cardPageParsed.find('table', class_='wikitable').find('tbody')
             cardPageContentRows = cardPageContent.find_all('tr')
@@ -84,9 +84,9 @@ if __name__ == '__main__':
 
     BASE_URL = "https://duelmasters.fandom.com"
     # TODO: Make into a CLI input
-    SET_URL = "https://duelmasters.fandom.com/wiki/DM23-EX2_Battle_of_Top!!_Dueking_MAX_2023"
+    SET_URL = "https://duelmasters.fandom.com/wiki/DM24-RP2_Kaiser_of_Hyperdragon"
     includeFlavorText = False
-    enableUpscaling = False
+    enableUpscaling = True
 
     start = time.time()
 
