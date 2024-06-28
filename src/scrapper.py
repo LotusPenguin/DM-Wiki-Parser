@@ -1,6 +1,7 @@
 import json
 import os
 import time
+import argparse
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -82,37 +83,60 @@ if __name__ == '__main__':
     os.makedirs(scrapped_directory, exist_ok=True)
     os.makedirs(raw_image_directory, exist_ok=True)
 
+    MODE = ""
     BASE_URL = "https://duelmasters.fandom.com"
-    # TODO: Make into a CLI input
-    SET_URL = "https://duelmasters.fandom.com/wiki/DM24-RP2_Kaiser_of_Hyperdragon"
+
+    parser = argparse.ArgumentParser(description='CLI Interface for DM Wiki Parser')
+    parser.add_argument('--source', type=str, required=True,
+                        help='Dataset source directory.')
+    parser.add_argument('--verbose', action='store_true',
+                        help='Print debug info.')
+    parser.add_argument('--name', type=str, required=False, default='',
+                        help='Custom name for the set file.')
+    args = parser.parse_args()
+
+    source = args.source
+    verbose = args.verbose
+    setName = args.name
+
     includeFlavorText = False
     enableUpscaling = True
 
+    cardLinksList = []
+
     start = time.time()
 
-    page = requests.get(SET_URL)
-    soup = BeautifulSoup(page.content, "html.parser")
+    if os.path.isfile(source):
+        mode = 'link_list_in_file'
+        with open(source) as f:
+            cardLinksList = f.read().splitlines()
+        if setName == '':
+            setName = time.strftime('%Y-%m-%d %H-%M-%S')
+    else:
+        mode = 'set_url'
+        SET_URL = source
 
-    mainPageContent = soup.find('div', class_='mw-parser-output')
-    raritySectionListUnfiltered = mainPageContent.find_all('ul')
-    raritySectionListFiltered = []
-    for element in raritySectionListUnfiltered:
-        sectionHeader = find_previous_of_tag(element, to_find='h2')
-        if sectionHeader is not None:
-            tempTag = sectionHeader.find('span')
-            if tempTag is not None and tempTag.get_text() == 'Contents':
-                raritySectionListFiltered.append(element)
+        page = requests.get(SET_URL)
+        soup = BeautifulSoup(page.content, "html.parser")
 
-    cardLinksList = []
-    cardNameList = []
-    for element in raritySectionListFiltered:
-        tempList = element.find_all('a')
-        for subElement in tempList:
-            cardLinksList.append(BASE_URL + subElement['href'])
-            cardNameList.append(subElement.get_text())
+        mainPageContent = soup.find('div', class_='mw-parser-output')
+        raritySectionListUnfiltered = mainPageContent.find_all('ul')
+        raritySectionListFiltered = []
+        for element in raritySectionListUnfiltered:
+            sectionHeader = find_previous_of_tag(element, to_find='h2')
+            if sectionHeader is not None:
+                tempTag = sectionHeader.find('span')
+                if tempTag is not None and tempTag.get_text() == 'Contents':
+                    raritySectionListFiltered.append(element)
+
+        for element in raritySectionListFiltered:
+            tempList = element.find_all('a')
+            for subElement in tempList:
+                cardLinksList.append(BASE_URL + subElement['href'])
+        if setName == '':
+            setName = SET_URL.split('/')[-1].split('_')[0].strip()
 
     cardDetailsList = getCards(cardLinksList)
-    setName = SET_URL.split('/')[-1].split('_')[0].strip()
 
     ## Dump set details to file
     with open(scrapped_directory + setName + '.json', 'w', encoding='UTF-8') as f:
