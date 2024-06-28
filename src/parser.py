@@ -156,6 +156,31 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
             card_subtype = ""
     card_subtype = card_subtype.upper()
 
+    kingdom_text = ""
+
+    if "TEAM KIRIFUDA" in card_subtype:
+        kingdom_text += 'fn'
+    elif "ONIFUDA KINGDOM" in card_subtype:
+        kingdom_text += 'df'
+    elif "TEAM BOMBER" in card_subtype:
+        kingdom_text += 'lf'
+    elif "TEAM GINGA" in card_subtype:
+        kingdom_text += 'lw'
+    elif "TEAM WAVE" in card_subtype:
+        kingdom_text += 'wn'
+    elif "FUSHIGI KINGDOM" in card_subtype:
+        kingdom_text += 'dn'
+    elif "BIKKURI KINGDOM" in card_subtype:
+        kingdom_text += 'wf'
+    elif "GEKKO KINGDOM" in card_subtype:
+        kingdom_text += 'ld'
+    elif "BOUKEN KINGDOM" in card_subtype:
+        kingdom_text += 'ln'
+    elif "TEAM ZERO" in card_subtype:
+        kingdom_text += 'wd'
+    elif "JOKERS" in card_subtype:
+        kingdom_text += 'j'
+
     symbol_text = ""
 
     if 'Light' in card_civ:
@@ -213,6 +238,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
 \ttime_created: {time_now}
 \ttime_modified: {time_now}
 \tcost_text: {cost_text}
+\tkingdom_text: {kingdom_text}
 \ttype_text: {type_text}
 \tpower_text: {power_text}
 \tpower_number: {power_number}

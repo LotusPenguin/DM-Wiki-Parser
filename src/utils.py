@@ -61,4 +61,4 @@ def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled"
 
 
 if __name__ == '__main__':
-    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\DM 14 (OCTGN)", "C:\\Users\\Pingwin\\Desktop\\Upscaled_DM 14 (OCTGN)")
+    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\temp", "C:\\Users\\Pingwin\\Desktop\\Upscaled_temp")
