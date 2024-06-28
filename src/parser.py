@@ -170,7 +170,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
         symbol_text += 'n'
     if 'Colorless' in card_civ:
         symbol_text += 'c'
-    if 'Jokers' in card_subtype:
+    if 'JOKERS' in card_subtype:
         symbol_text += 'j'
 
     upscaled_image_directory = parser_directory + setName
