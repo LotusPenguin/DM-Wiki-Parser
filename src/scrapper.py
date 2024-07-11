@@ -93,14 +93,17 @@ if __name__ == '__main__':
                         help='Print debug info.')
     parser.add_argument('--name', type=str, required=False, default='',
                         help='Custom name for the set file.')
+    parser.add_argument('--no_upscale', action='store_true',
+                        help='Disable upscaling')
+    parser.add_argument('--flavor_text', action='store_true',
+                        help='Add flavor text')
     args = parser.parse_args()
 
     source = args.source
     verbose = args.verbose
     setName = args.name
-
-    includeFlavorText = False
-    enableUpscaling = True
+    includeFlavorText = args.flavor_text
+    enableUpscaling = not args.no_upscale
 
     cardLinksList = []
 

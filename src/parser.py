@@ -53,6 +53,7 @@ def applyTextFormattingFixes(text):
             .replace('\n\n', '\n')
             .replace('\n\n', '\n')
             .replace('\n', '\n\t\t')
+            .replace('its \n', 'its ')  # shield trigger plus inconsistency fix
             .replace('(', '<i>(')
             .replace(')', ')</i>')
             .replace('▼', '<sym>t</sym>➤')
@@ -199,7 +200,7 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
         symbol_text += 'j'
 
     upscaled_image_directory = parser_directory + setName
-    # ESGRAN integration
+    # ESRGAN integration
     if enableUpscaling:
         raw_image_path = raw_image_directory + setName + f'/image{index}.png'
         image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)

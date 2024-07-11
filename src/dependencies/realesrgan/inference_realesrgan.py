@@ -10,7 +10,7 @@ from src.dependencies.realesrgan.realesrgan.archs.srvgg_arch import SRVGGNetComp
 from src.utils import *
 
 
-def upscale(setName, input_path, output_path):
+def upscale(setName, input_path, output_path, outscale=2080, use_horizontal=False):
     """Inference demo for Real-ESRGAN.
 
     parser = argparse.ArgumentParser()
@@ -57,7 +57,10 @@ def upscale(setName, input_path, output_path):
     """
 
     imagefile = cv2.imread(input_path)
-    outscale = float(2080 / imagefile.shape[0])
+    if use_horizontal:
+        outscale = float(outscale / imagefile.shape[1])
+    else:
+        outscale = float(outscale / imagefile.shape[0])
     args = argparse.Namespace(input=f'{input_path}', model_name='RealESRGAN_x4plus_anime_6B', output=f'{output_path}', denoise_strength=0.5, outscale=outscale, model_path=None, suffix='', tile=0, tile_pad=10, pre_pad=0, face_enhance=False, fp32=False, alpha_upsampler='realesrgan', ext='auto', gpu_id=None, xpu=False)
 
     # determine models according to model names

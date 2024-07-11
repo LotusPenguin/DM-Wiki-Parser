@@ -49,7 +49,7 @@ def println(*to_print):
     print(*to_print)
 
 
-def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled"):
+def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled", outscale=2080, use_horizontal=False):
     if not os.path.exists(input_directory):
         println("Error: invalid input directory")
 
@@ -57,8 +57,8 @@ def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled"
         image_path = os.path.join(input_directory, image_file)
         if not os.path.isfile(image_path):
             continue
-        inference_realesrgan.upscale(setName, image_path, upscaled_image_directory)
+        inference_realesrgan.upscale(setName, image_path, upscaled_image_directory, outscale=outscale, use_horizontal=use_horizontal)
 
 
 if __name__ == '__main__':
-    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\temp", "C:\\Users\\Pingwin\\Desktop\\Upscaled_temp")
+    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\temp", "C:\\Users\\Pingwin\\Desktop\\Upscaled_temp", outscale=2750, use_horizontal=True)
