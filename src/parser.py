@@ -54,6 +54,7 @@ def applyTextFormattingFixes(text):
             .replace('\n\n', '\n')
             .replace('\n', '\n\t\t')
             .replace('its \n', 'its ')  # shield trigger plus inconsistency fix
+            .replace('following \n', 'following ')  # thrilling three, metamorph inconsistency fix
             .replace('(', '<i>(')
             .replace(')', ')</i>')
             .replace('▼', '<sym>t</sym>➤')
