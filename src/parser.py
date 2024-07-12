@@ -90,7 +90,7 @@ apprentice_code:
 """)
 
 
-def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpscaling):
+def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, enableUpscaling):
     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     card_name = tagSubstitution(card['Name'])
@@ -203,10 +203,16 @@ def generateCardEntry(file, setName, card, index, includeFlavorText, enableUpsca
     # ESRGAN integration
     if enableUpscaling:
         raw_image_path = raw_image_directory + setName + f'/image{index}.png'
-        image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
+        if imageUrl is not None and imageUrl != 'default':
+            image = urllib.request.urlretrieve(imageUrl, raw_image_path)
+        else:
+            image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
         inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
     else:
-        image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory + f'/image{index}.png')
+        if imageUrl is not None and imageUrl != 'default':
+            image = urllib.request.urlretrieve(imageUrl, upscaled_image_directory + f'/image{index}.png')
+        else:
+            image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory + f'/image{index}.png')
 
     try:
         text_formatted = formatText(card['English Text + Symbols'], card_type)
@@ -265,7 +271,7 @@ def removeFileSuffixes(setName):
                   os.path.join(parser_directory, setName, file).removesuffix('.png'))
 
 
-def makeSet(setName, cardDetailsList, includeFlavorText=False, enableUpscaling=True):
+def makeSet(setName, cardDetailsList, imageLinksList, includeFlavorText=False, enableUpscaling=True):
     os.makedirs(parser_directory + setName, exist_ok=True)
     os.makedirs(raw_image_directory + setName, exist_ok=True)
     with open(parser_directory + setName + '/set', 'w', encoding='UTF-8') as setFile:
@@ -273,7 +279,10 @@ def makeSet(setName, cardDetailsList, includeFlavorText=False, enableUpscaling=T
         i = 1
         for card in cardDetailsList:
             i += 1
-            generateCardEntry(setFile, setName, card, i, includeFlavorText, enableUpscaling)
+            if imageLinksList is not None:
+                generateCardEntry(setFile, setName, card, imageLinksList[i-2], i, includeFlavorText, enableUpscaling)
+            else:
+                generateCardEntry(setFile, setName, card, None, i, includeFlavorText, enableUpscaling)
         generateFileEnd(setFile)
 
     removeFileSuffixes(setName)

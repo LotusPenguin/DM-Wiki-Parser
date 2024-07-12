@@ -92,20 +92,24 @@ if __name__ == '__main__':
     parser.add_argument('--verbose', action='store_true',
                         help='Print debug info.')
     parser.add_argument('--name', type=str, required=False, default='',
-                        help='Custom name for the set file.')
+                        help='Custom name for the set file. (optional)')
     parser.add_argument('--no_upscale', action='store_true',
-                        help='Disable upscaling')
+                        help='Disable upscaling.')
     parser.add_argument('--flavor_text', action='store_true',
-                        help='Add flavor text')
+                        help='Add flavor text.')
+    parser.add_argument('--image_source', type=str, required=False, default='',
+                        help='Add image source list as txt (optional).')
     args = parser.parse_args()
 
     source = args.source
     verbose = args.verbose
     setName = args.name
+    image_source = args.image_source
     includeFlavorText = args.flavor_text
     enableUpscaling = not args.no_upscale
 
     cardLinksList = []
+    imageLinksList = None
 
     start = time.time()
 
@@ -115,6 +119,9 @@ if __name__ == '__main__':
             cardLinksList = f.read().splitlines()
         if setName == '':
             setName = time.strftime('%Y-%m-%d %H-%M-%S')
+        if image_source != '' and os.path.isfile(image_source):
+            with open(image_source) as f:
+                imageLinksList = f.read().splitlines()
     else:
         mode = 'set_url'
         SET_URL = source
@@ -146,7 +153,7 @@ if __name__ == '__main__':
         for card in cardDetailsList:
             f.write(json.dumps(card) + '\n')
 
-    makeSet(setName, cardDetailsList, includeFlavorText, enableUpscaling)
+    makeSet(setName, cardDetailsList, imageLinksList, includeFlavorText, enableUpscaling)
 
     end = time.time()
     println(f"Elapsed time: {end - start}")
