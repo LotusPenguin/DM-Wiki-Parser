@@ -224,7 +224,11 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
         try:
             flavor_text = card['Flavor Text']
         except KeyError:
-            flavor_text = ""
+            try:
+                flavor_text = card['Flavor Texts']
+            except KeyError:
+                println(f"No flavor text found for {card_name}")
+                flavor_text = ""
     else:
         flavor_text = ""
 
