@@ -116,6 +116,8 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             type_text = 'e'
         case "Neo Creature":
             type_text = 'n'
+        case "Psychic Cross Gear":
+            type_text = 'pcg'
         case _:
             type_text = ''
 
@@ -156,6 +158,7 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             card_subtype = card['Races']
         except KeyError:
             card_subtype = ""
+            card_rarity_text = "0"
     card_subtype = card_subtype.upper()
 
     kingdom_text = ""
@@ -265,6 +268,7 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
 \t\t</line></sep><font:ITC Officina Sans><size:40>{flavor_text}</size></font>
 \tname: {card_name}
 \tsubtype: {card_subtype}
+\trarity_text: {card_rarity_text}
 \tcivspell_text: {civspell_text}
 \ttype_color: {type_color}
 """)
