@@ -223,6 +223,9 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     except KeyError:
         text_formatted = ""
 
+    if "Shinkarise" in text_formatted and card_type == "Tamaseed":
+        type_text += "s"
+
     if includeFlavorText:
         try:
             flavor_text = card['Flavor Text']
