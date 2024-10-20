@@ -118,6 +118,8 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             type_text = 'n'
         case "Psychic Cross Gear":
             type_text = 'pcg'
+        case "Star Evolution Creature":
+            type_text = 'se'
         case _:
             type_text = ''
 
