@@ -120,6 +120,8 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             type_text = 'pcg'
         case "Star Evolution Creature":
             type_text = 'se'
+        case "Evolution Psychic Creature":
+            type_text = 'pe'
         case _:
             type_text = ''
 
