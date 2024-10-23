@@ -155,6 +155,7 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     except KeyError:
         card_civ = card['Civilizations']
 
+    card_rarity_text = ""
     try:
         card_subtype = card['Race']
     except KeyError:
