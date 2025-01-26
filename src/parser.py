@@ -163,7 +163,8 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             card_subtype = card['Races']
         except KeyError:
             card_subtype = ""
-            card_rarity_text = "0"
+            if card_type != "Spell":
+                card_rarity_text = "0"
     card_subtype = card_subtype.upper()
 
     kingdom_text = ""
