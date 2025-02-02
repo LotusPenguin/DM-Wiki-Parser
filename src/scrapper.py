@@ -114,7 +114,7 @@ if __name__ == '__main__':
     start = time.time()
 
     if os.path.isfile(source):
-        mode = 'link_list_in_file'
+        MODE = 'link_list_in_file'
         with open(source) as f:
             cardLinksList = f.read().splitlines()
         if setName == '':
@@ -123,7 +123,7 @@ if __name__ == '__main__':
             with open(image_source) as f:
                 imageLinksList = f.read().splitlines()
     else:
-        mode = 'set_url'
+        MODE = 'set_url'
         SET_URL = source
 
         page = requests.get(SET_URL)
