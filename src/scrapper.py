@@ -80,7 +80,7 @@ def getCards(linkList):
 
 if __name__ == '__main__':
     os.makedirs(parser_directory, exist_ok=True)
-    os.makedirs(scrapped_directory, exist_ok=True)
+    os.makedirs(scraped_directory, exist_ok=True)
     os.makedirs(raw_image_directory, exist_ok=True)
 
     MODE = ""
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     cardDetailsList = getCards(cardLinksList)
 
     ## Dump set details to file
-    with open(scrapped_directory + setName + '.json', 'w', encoding='UTF-8') as f:
+    with open(scraped_directory + setName + '.json', 'w', encoding='UTF-8') as f:
         for card in cardDetailsList:
             f.write(json.dumps(card) + '\n')
 
