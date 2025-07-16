@@ -1,14 +1,14 @@
 facexlib>=0.2.5
 numpy
 opencv-python~=4.8.1.78
-Pillow~=10.1.0
+Pillow>=10.3.0
 torch~=torch-2.2.2+cu121
 torchvision~=0.17.1
-tqdm~=4.66.2
+tqdm>=4.66.3
 #basicsr>=1.4.2
 
-requests~=2.31.0
+requests>=2.32.4
 beautifulsoup4~=4.12.2
 PyYAML~=6.0.1
 scipy
-setuptools~=69.2.0
+setuptools>=78.1.1
