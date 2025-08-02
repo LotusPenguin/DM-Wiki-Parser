@@ -1,6 +1,7 @@
 from datetime import datetime
 from dependencies.realesrgan import inference_realesrgan
 import os
+import argparse
 
 
 class stringButBetter(str):
@@ -61,4 +62,15 @@ def upscaleCatalog(input_directory, upscaled_image_directory, setName="Upscaled"
 
 
 if __name__ == '__main__':
-    upscaleCatalog("C:\\Users\\Pingwin\\Desktop\\temp", "C:\\Users\\Pingwin\\Desktop\\Upscaled_temp", outscale=2750, use_horizontal=True)
+    parser = argparse.ArgumentParser(description='CLI Interface for Catalog Upscale utility')
+    parser.add_argument('--source', type=str, required=True,
+                        help='Dataset source directory.')
+    parser.add_argument('--destination', type=str, required=True,
+                        help='Dataset destination directory.')
+    parser.add_argument('--outscale', type=int, required=True,
+                        help='Target size of chosen image dimension (vertical is default).')
+    parser.add_argument('--use_horizontal', action='store_true',
+                        help='Use horizontal dimension for outscale size calculation (optional).')
+    args = parser.parse_args()
+
+    upscaleCatalog(args.source, args.destination, outscale=args.outscale, use_horizontal=args.use_horizontal)
