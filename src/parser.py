@@ -214,13 +214,19 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     if enableUpscaling:
         raw_image_path = raw_image_directory + setName + f'/image{index}.png'
         if imageUrl is not None and imageUrl != 'default':
-            image = urllib.request.urlretrieve(imageUrl, raw_image_path)
+            if os.path.exists(imageUrl):
+                shutil.copy2(imageUrl, raw_image_path)
+            else:
+                image = urllib.request.urlretrieve(imageUrl, raw_image_path)
         else:
             image = urllib.request.urlretrieve(card['Image Url'], raw_image_path)
         inference_realesrgan.upscale(setName, raw_image_path, upscaled_image_directory)
     else:
         if imageUrl is not None and imageUrl != 'default':
-            image = urllib.request.urlretrieve(imageUrl, upscaled_image_directory + f'/image{index}.png')
+            if os.path.exists(imageUrl):
+                shutil.copy2(imageUrl, upscaled_image_directory + f'/image{index}.png')
+            else:
+                image = urllib.request.urlretrieve(imageUrl, upscaled_image_directory + f'/image{index}.png')
         else:
             image = urllib.request.urlretrieve(card['Image Url'], upscaled_image_directory + f'/image{index}.png')
 
