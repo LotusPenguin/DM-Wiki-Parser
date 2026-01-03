@@ -66,6 +66,8 @@ def getCards(linkList):
                 tempString = element.get_text()
                 tempString = tempString.replace("\n", "")
                 tempSplit = tempString.split(':', 1)
+                if len(tempSplit) < 2:
+                    continue
                 cardDict[tempSplit[0]] = tempSplit[1]
                 if 'English' in tempSplit[0]:
                     raw_text = includeSymbols(str(element.contents[3:]))
