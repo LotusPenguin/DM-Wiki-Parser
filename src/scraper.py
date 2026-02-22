@@ -2,6 +2,7 @@ import json
 import os
 import time
 import argparse
+import unicodedata
 
 import requests
 from bs4 import BeautifulSoup, Tag
@@ -37,13 +38,57 @@ def includeSymbols(text):
     text = temp_soup.get_text()
     return text
 
+def repair_title(s: str) -> str:
+    s = s.strip()
+    if any(x in s for x in ("â€™", "â€œ", "â€", "Ã", "Â")):
+        for enc in ("cp1252", "latin1"):
+            try:
+                s = s.encode(enc).decode("utf-8")
+                break
+            except UnicodeError:
+                continue
+    s = unicodedata.normalize("NFC", s)
+    s = s.replace("_", " ")
+    return s
+
 
 def getCards(linkList):
     returnedList = []
-    for cardLink in linkList:
+    api_url = "https://duelmasters.fandom.com/api.php"
+
+    s = requests.Session()
+    s.headers.update({"User-Agent": "Mozilla/5.0 (compatible; mybot/1.0)"})
+    for cardName in linkList:
         try:
-            cardPage = requests.get(cardLink, timeout=60)
-            cardPageParsed = BeautifulSoup(cardPage.content, "html.parser")
+            q = s.get(api_url, params={
+                "action": "query",
+                "titles": repair_title(cardName),
+                "redirects": 1,
+                "format": "json",
+                "formatversion": "2",
+            }, timeout=60)
+            q.raise_for_status()
+            qdata = q.json()
+
+            pages = qdata.get("query", {}).get("pages", [])
+            if not pages or "missing" in pages[0]:
+                raise RuntimeError(f"Page not found. Response: {qdata}")
+
+            pageid = pages[0]["pageid"]
+
+            params = {
+                "action": "parse",
+                "pageid": pageid,
+                "prop": "text",
+                "format": "json",
+                "formatversion": "2",
+                "redirects": 1,
+            }
+            cardPage = s.get(api_url, params=params, timeout=60)
+            cardPage.raise_for_status()
+            data = cardPage.json()
+            html = data["parse"]["text"]
+            cardPageParsed = BeautifulSoup(html, "html.parser")
             cardPageContent = cardPageParsed.find('table', class_='wikitable').find('tbody')
             cardPageContentRows = cardPageContent.find_all('tr')
 
@@ -122,7 +167,7 @@ if __name__ == '__main__':
         if setName == '':
             setName = time.strftime('%Y-%m-%d %H-%M-%S')
         if image_source != '' and os.path.isfile(image_source):
-            with open(image_source) as f:
+            with open(image_source, encoding="utf-8") as f:
                 imageLinksList = f.read().splitlines()
     else:
         MODE = 'set_url'
