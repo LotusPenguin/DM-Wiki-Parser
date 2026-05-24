@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup, Tag
 from config import *
 from parser import makeSet
 from utils import *
+from urllib.parse import unquote
 
 
 def getPageResponse(URL):
@@ -49,7 +50,14 @@ def repair_title(s: str) -> str:
                 continue
     s = unicodedata.normalize("NFC", s)
     s = s.replace("_", " ")
+    s = unquote(s)
     return s
+
+
+def strip_url(url, BASE_URL, CONTENT_SUFFIX):
+    if (BASE_URL + CONTENT_SUFFIX) in url:
+        url = url.replace(BASE_URL + CONTENT_SUFFIX, '').replace('_', ' ')
+    return url
 
 
 def getCards(linkList):
@@ -59,6 +67,7 @@ def getCards(linkList):
     s = requests.Session()
     s.headers.update({"User-Agent": "Mozilla/5.0 (compatible; mybot/1.0)"})
     for cardName in linkList:
+        cardName = strip_url(cardName, BASE_URL, CONTENT_SUFFIX)
         try:
             q = s.get(api_url, params={
                 "action": "query",
@@ -124,7 +133,6 @@ def getCards(linkList):
             println(IndexError)
     return returnedList
 
-
 if __name__ == '__main__':
     os.makedirs(parser_directory, exist_ok=True)
     os.makedirs(scraped_directory, exist_ok=True)
@@ -132,6 +140,7 @@ if __name__ == '__main__':
 
     MODE = ""
     BASE_URL = "https://duelmasters.fandom.com"
+    CONTENT_SUFFIX = "/wiki/"
 
     parser = argparse.ArgumentParser(description='CLI Interface for DM Wiki Parser')
     parser.add_argument('--source', type=str, required=True,
@@ -172,9 +181,45 @@ if __name__ == '__main__':
     else:
         MODE = 'set_url'
         SET_URL = source
+        API_URL = "https://duelmasters.fandom.com/api.php"
 
-        page = requests.get(SET_URL)
-        soup = BeautifulSoup(page.content, "html.parser")
+        SET_URL = strip_url(SET_URL, BASE_URL, CONTENT_SUFFIX)
+
+        s = requests.Session()
+        s.headers.update({"User-Agent": "Mozilla/5.0 (compatible; mybot/1.0)"})
+
+        q = s.get(API_URL, params={
+            "action": "query",
+            "titles": repair_title(SET_URL),
+            "redirects": 1,
+            "format": "json",
+            "formatversion": "2",
+        }, timeout=60)
+        q.raise_for_status()
+        qdata = q.json()
+
+        pages = qdata.get("query", {}).get("pages", [])
+        if not pages or "missing" in pages[0]:
+            raise RuntimeError(f"Page not found. Response: {qdata}")
+
+        pageid = pages[0]["pageid"]
+
+        params = {
+            "action": "parse",
+            "pageid": pageid,
+            "prop": "text",
+            "format": "json",
+            "formatversion": "2",
+            "redirects": 1,
+        }
+
+        setPage = s.get(API_URL, params=params, timeout=60)
+        setPage.raise_for_status()
+        data = setPage.json()
+        html = data["parse"]["text"]
+
+        #page = requests.get(SET_URL)
+        soup = BeautifulSoup(html, "html.parser")
 
         mainPageContent = soup.find('div', class_='mw-parser-output')
         raritySectionListUnfiltered = mainPageContent.find_all('ul')
