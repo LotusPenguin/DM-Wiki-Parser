@@ -183,6 +183,9 @@ if __name__ == '__main__':
         SET_URL = source
         API_URL = "https://duelmasters.fandom.com/api.php"
 
+        if setName == '':
+            setName = SET_URL.split('/')[-1].split('_')[0].strip()
+
         SET_URL = strip_url(SET_URL, BASE_URL, CONTENT_SUFFIX)
 
         s = requests.Session()
@@ -235,8 +238,6 @@ if __name__ == '__main__':
             tempList = element.find_all('a')
             for subElement in tempList:
                 cardLinksList.append(BASE_URL + subElement['href'])
-        if setName == '':
-            setName = SET_URL.split('/')[-1].split('_')[0].strip()
 
     cardDetailsList = getCards(cardLinksList)
 
