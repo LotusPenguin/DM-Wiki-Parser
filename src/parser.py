@@ -101,8 +101,13 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     except KeyError:
         cost_text = ""
         println(f"No cost found for {card_name}")
+        
+    try:
+        card_type = card['Card Type'].strip()
+    except KeyError:
+        card_type = ""
+        println(f"No card type found for {card_name}")
 
-    card_type = card['Card Type'].strip()
     match card_type:
         case "Creature":
             type_text = 'c'
