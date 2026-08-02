@@ -8,6 +8,26 @@ from config import *
 from utils import *
 
 
+# Civilization codes each type banner family actually has frames for in MSE-DM.
+# Families not listed here carry the full 38-code set, so any civilization combination resolves.
+limitedTypeFrameCivs = {
+    'pc': {'c', 'cj', 'd', 'df', 'dj', 'dn', 'f', 'fj', 'fn', 'l', 'ld', 'lf',
+           'lj', 'ln', 'lw', 'n', 'nj', 'w', 'wd', 'wf', 'wj', 'wn'},
+    'cgx': {'c', 'cj', 'd', 'df', 'dj', 'dn', 'f', 'fj', 'fn', 'l', 'ld', 'lf',
+            'lj', 'ln', 'lw', 'n', 'nj', 'w', 'wd', 'wf', 'wj', 'wn'},
+    'cgn': {'c', 'd', 'df', 'dn', 'f', 'fn', 'l', 'ld', 'lf', 'ln', 'lw', 'n',
+            'w', 'wd', 'wf', 'wn'},
+    'pcgn': {'d', 'f', 'l', 'n', 'w'},
+    'se': {'c', 'cj', 'd', 'dj', 'f', 'fj', 'l', 'lj', 'n', 'nj', 'w', 'wf', 'wj'},
+    'pe': {'c', 'd', 'f', 'l', 'n', 'w'},
+    'pcg': {'c', 'd', 'f', 'l', 'n', 'w'},
+    'dc': {'c', 'd', 'f', 'l', 'n', 'w'},
+    'dcs': {'c', 'd', 'f', 'l', 'n', 'w'},
+    'ds': {'c', 'd', 'f', 'l', 'n', 'w'},
+    'd': {'c', 'd', 'f', 'l', 'n', 'w'},
+}
+
+
 def formatText(text, card_type):
     text = stringButBetter(text)
     text = applyInconsistencyFixes(text)
@@ -127,8 +147,28 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             type_text = 'se'
         case "Evolution Psychic Creature":
             type_text = 'pe'
+        case "Psychic Creature":
+            type_text = 'pc'
+        case "G-Neo Creature":
+            type_text = 'cgn'
+        case "G-Neo Psychic Creature":
+            type_text = 'pcgn'
+        case "Dream Creature":
+            type_text = 'drc'
+        case "Galaxy Castle":
+            type_text = 'cgx'
+        case "Duelist":
+            type_text = 'd'
+        case "Duelmate Creature":
+            type_text = 'dc'
+        case "Duelmate Super Creature":
+            type_text = 'dcs'
+        case "Duelmate Spell":
+            type_text = 'ds'
         case _:
             type_text = ''
+            if card_type != "":
+                println(f"Unsupported card type '{card_type}' for {card_name}")
 
     try:
         power_number = card['Power']
@@ -168,7 +208,7 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
             card_subtype = card['Races']
         except KeyError:
             card_subtype = ""
-            if card_type != "Spell":
+            if card_type not in ("Spell", "Duelmate Spell"):
                 card_rarity_text = "0"
     card_subtype = card_subtype.upper()
 
@@ -214,6 +254,10 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     if 'JOKERS' in card_subtype and len(symbol_text) < 2:
         symbol_text += 'j'
 
+    supported_civs = limitedTypeFrameCivs.get(type_text)
+    if supported_civs is not None and symbol_text not in supported_civs:
+        println(f"No '{type_text}' type frame for civilizations '{symbol_text}' ({card_name})")
+
     upscaled_image_directory = parser_directory + setName
     # ESRGAN integration
     if enableUpscaling:
@@ -255,12 +299,12 @@ def generateCardEntry(file, setName, card, imageUrl, index, includeFlavorText, e
     else:
         flavor_text = ""
 
-    if card_subtype != "" and type_text == 's':
+    if card_subtype != "" and type_text in ('s', 'ds'):
         civspell_text = '1'
     else:
         civspell_text = ''
 
-    if card_subtype != "" and type_text == 's':
+    if card_subtype != "" and type_text in ('s', 'ds'):
         type_color = '1'
     elif 'c' in symbol_text or 'j' in symbol_text:
         type_color = '1'
